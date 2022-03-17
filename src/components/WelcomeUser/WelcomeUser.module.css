@@ -1,0 +1,21 @@
+main {
+    background-color: #009ed2;
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+}
+
+.card {
+    border-radius: 8px;
+    max-width: 325px;
+    padding: 35px 25px;
+    background-color: #f5f9fd;
+    box-shadow: 2px 2px 30px 5px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+.avatarWrapper img {
+    max-width: 100%;
+    width: 75px;
+    height: 75px;
+}
