@@ -45,9 +45,28 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  max-width: 1400px;
   gap: 40px;
   flex-wrap: wrap;
   margin: 37px auto;
+}
+
+.paginationWrapper {
+  text-align: center;
+}
+
+.paginationWrapper .paginatedBtns {
+  padding: 8px 14px;
+  background-color: #004e80;
+  color: white;
+  border: none;
+  margin: 5px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.paginationWrapper .paginatedBtns.active {
+  background-color: #009ed2;
 }
 
 @media only screen and (max-width: 500px) {
