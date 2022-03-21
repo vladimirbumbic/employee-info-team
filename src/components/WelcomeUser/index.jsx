@@ -3,7 +3,7 @@ import styles from './WelcomeUser.module.css';
 
 const WelcomeUser = () => {
   return (
-    <main>
+    <main className={styles.main}>
       <div className={styles.card}>
         <div className={styles.avatarWrapper}>
           <img src={AvatarLogo} alt="Avatar Icon"></img>
