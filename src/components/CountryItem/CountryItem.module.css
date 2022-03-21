@@ -1,0 +1,66 @@
+.countryItemContainer {
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+    background-color: rgb(209, 248, 235);
+    margin-bottom: 10px;
+    padding: 15px;
+    color: #838485;
+    font-size: 18px;
+    border-radius: 10px;
+}
+
+.countryName {
+    width: 70%;
+}
+.countryNameActive {
+    border: 2px solid salmon;
+    width: 70%;
+    background-color: white;
+}
+.deleteButton {
+    margin-left: 10px;
+    border: 2px solid red;
+    color: red;
+    background-color: rgb(252, 229, 229);
+}
+
+.deleteButton:hover {
+    cursor: pointer;
+    color: rgb(168, 5, 5);
+    background-color: rgb(250, 192, 192);
+    transition: 0.5s;
+}
+
+.editButton {
+    border: 2px solid rgb(78, 78, 236);
+    color: rgb(78, 78, 236);
+    background-color: rgb(229, 229, 250);
+}
+
+.editButton:hover {
+    cursor: pointer;
+    color: rgb(28, 28, 160);
+    background-color: rgb(174, 174, 240);
+    transition: 0.5s;
+}
+
+.editButton,
+.deleteButton {
+    border-radius: 10px;
+    width: 80px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-weight: bold;
+}
+
+.saveButton {
+    border-radius: 10px;
+    border: 2px solid rgb(28, 180, 86);
+    width: 80px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-weight: bold;
+    color: rgb(28, 180, 86);
+    background-color: rgb(223, 255, 235);
+}

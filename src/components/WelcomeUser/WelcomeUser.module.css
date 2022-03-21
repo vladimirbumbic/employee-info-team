@@ -1,9 +1,9 @@
-main {
+/* main {
     background-color: #009ed2;
     min-height: 100vh;
     display: grid;
     place-items: center;
-}
+} */
 
 .card {
     border-radius: 8px;

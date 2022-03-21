@@ -1,0 +1,17 @@
+/* .mainContainer {
+    display: flex;
+    background-color: red;
+} */
+
+.componentContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 10vh;
+    left: 20vw;
+    width: 77vw;
+    height: 90vh;
+    background-color: #f5f9fd;
+    overflow-y: scroll;
+}

@@ -1,0 +1,102 @@
+.pageContainer {
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('../../../public/assets/login-background.webp');
+    background-size: cover;
+}
+
+.mainContainer {
+    display: flex;
+    width: 80%;
+    height: 50%;
+    margin: auto;
+}
+
+.loginImageContainer {
+    display: flex;
+    height: 100%;
+    width: 50%;
+    margin-right: 5%;
+}
+
+.laptopImage {
+    width: 50%;
+    height: 100%;
+    background-image: url(../../../public/assets/laptop-image.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.loginTitleContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    background-color: rgb(151, 224, 175);
+}
+
+.loginTitleIcon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 33%;
+    background-color: white;
+}
+
+.userIcon {
+    color: rgb(140, 148, 148);
+    font-size: 32px;
+}
+
+.loginTitle {
+    color: rgb(75, 78, 78);
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 0px;
+}
+
+.loginGoogleOauthContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 100%;
+    background-color: white;
+}
+
+.googleOAuthContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    padding: 10px;
+    border: 1px solid rgb(61, 201, 108);
+    color: rgb(75, 78, 78);
+}
+
+.googleOAuthContainer:hover {
+    cursor: pointer;
+    color: white;
+    background-color: rgb(151, 224, 175);
+    transition: 0.3s;
+}
+
+.googleOAuthLogo {
+    width: 70px;
+    height: 70px;
+    background-image: url(../../../public/assets/google-icon.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.googleOAuthTitle {
+    font-size: 24px;
+}
+
+.google {
+    font-weight: bold;
+}
