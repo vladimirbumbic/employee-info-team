@@ -1,5 +1,9 @@
 .background {
   background: #f5f9fd;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .header {
