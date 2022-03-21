@@ -1,0 +1,59 @@
+.background {
+  background: #f5f9fd;
+}
+
+.header {
+  font-size: 34px;
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  margin: 0 auto;
+  padding-top: 80px;
+  padding-bottom: 30px;
+  color: #92a4b8;
+}
+
+.header button {
+  color: white;
+  width: 210px;
+  height: 32px;
+  background: #009ed2;
+  border: 1px solid #009ed2;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 18px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition-duration: 0.4s;
+}
+
+.header button:hover {
+  background-color: #004e80;
+  color: white;
+}
+
+.hr {
+  width: 79.5%;
+  margin: 0 auto;
+}
+
+.employees {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin: 37px auto;
+}
+
+@media only screen and (max-width: 500px) {
+  .header {
+    font-size: 30px;
+  }
+  .header button {
+    width: 110px;
+    height: 32px;
+    font-size: 10px;
+    line-height: 10px;
+  }
+}
