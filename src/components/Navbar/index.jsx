@@ -17,7 +17,7 @@ const Navbar = ({ role }) => {
       </div>
       {role && (
         <div className={styles.searchWrapper}>
-          <form>
+          <form className={styles.form}>
             <div className={styles.inputWrapper}>
               <BsSearch className={styles.searchIcon} />
               <input type="text" placeholder="Search Employee" />
@@ -35,7 +35,10 @@ const Navbar = ({ role }) => {
         </div>
       )}
       <div className={styles.logoWrapper}>
-        <img src={AvatarLogo} alt="avatar" />
+        <a href="#" className={styles.logout}>
+          Logout
+        </a>
+        <img src={AvatarLogo} alt="avatar" className={styles.avatarLogo} />
       </div>
     </nav>
   );
