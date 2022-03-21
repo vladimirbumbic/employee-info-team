@@ -13,7 +13,7 @@ const Navbar = ({ role }) => {
     >
       <div className={styles.nameWrapper}>
         {role && <BiMenu className={styles.hamburgerIcon} />}
-        <p>Quantox Image</p>
+        <p className={styles.name}>Quantox</p>
       </div>
       {role && (
         <div className={styles.searchWrapper}>
