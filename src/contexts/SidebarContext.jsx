@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 const SidebarContext = React.createContext();
 
-const SidebarProvider = ({ children }) => {
+export const SidebarProvider = ({ children }) => {
   const [sideBarIsOpen, setSidebarIsOpen] = useState(true);
 
   const sidebarContext = {
@@ -16,3 +16,5 @@ const SidebarProvider = ({ children }) => {
     </SidebarContext.Provider>
   );
 };
+
+export default SidebarContext;
