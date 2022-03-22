@@ -14,6 +14,7 @@ function App() {
 
         <Route path="/adminpm" element={<AdminPmPage />} /> */}
         <Route path="/" element={<LoginPage />} />
+        <Route path="/admin" element={<AdminPage />} />
         {/*   <Route path="/projectm" element={<PMPage />} /> */}
       </Routes>
     </div>
