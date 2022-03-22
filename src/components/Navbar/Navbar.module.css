@@ -1,0 +1,120 @@
+.navbar {
+  height: 60px;
+  width: 100%;
+  top: 0;
+  left: 0;
+  position: fixed;
+  background-color: #004e80;
+  display: grid;
+  grid-template-columns: 1fr 4fr 1fr;
+  align-items: center;
+  column-gap: 25px;
+  color: #fff;
+  padding: 0 20px 0 30px;
+}
+
+.navbarUser {
+  height: 60px;
+  width: 100%;
+  top: 0;
+  left: 0;
+  position: fixed;
+  background-color: #004e80;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 25px 0 30px;
+  color: #fff;
+}
+
+.nameWrapper {
+  display: flex;
+}
+
+.nameWrapper .hamburgerIcon {
+  font-size: 25px;
+  margin-right: 8px;
+  cursor: pointer;
+}
+
+.nameWrapper .name {
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.searchWrapper .form {
+  display: flex;
+  justify-content: center;
+}
+
+.searchWrapper .inputWrapper {
+  padding: 8px 12px;
+  border: 0.5px solid #ffffff30;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  margin-right: 55px;
+}
+
+.inputWrapper input {
+  background-color: transparent;
+  font-size: 14px;
+  border: none;
+  outline: none;
+  color: white;
+}
+
+.inputWrapper .searchIcon {
+  font-size: 16px;
+  margin-right: 8px;
+  cursor: pointer;
+}
+
+.inputWrapper input::placeholder {
+  color: white;
+}
+
+.searchWrapper .select {
+  width: 150px;
+  background-color: transparent;
+  border-radius: 6px;
+  border-color: #ffffff30;
+  color: white;
+  outline: none;
+  padding: 0 5px;
+}
+
+.searchWrapper .select > option {
+  background-color: white;
+  color: #009ed2;
+  padding: 5px 10px;
+  font-size: 16px;
+}
+
+.logoWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logoWrapper .logout {
+  text-decoration: none;
+  font-size: 18px;
+  color: white;
+}
+
+.logoWrapper .avatarLogo {
+  display: block;
+  justify-self: center;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  margin-left: 25px;
+  cursor: pointer;
+}
+
+@media (min-width: 1192px) {
+  .name {
+    font-size: 14px;
+  }
+}

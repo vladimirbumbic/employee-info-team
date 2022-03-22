@@ -1,7 +1,14 @@
 import WelcomeUser from '../../components/WelcomeUser';
+import Navbar from '../../components/Navbar';
 
 const UserPage = () => {
-    return <WelcomeUser />;
+  const role = 'admin';
+  return (
+    <>
+      <Navbar role={role} />
+      <WelcomeUser />
+    </>
+  );
 };
 
 export default UserPage;
