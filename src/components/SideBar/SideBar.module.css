@@ -9,4 +9,5 @@
     width: 20vw;
     height: 90vh;
     padding-top: 20px;
+    z-index: 1;
 }
