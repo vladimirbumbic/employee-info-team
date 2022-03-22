@@ -1,9 +1,18 @@
+<<<<<<< HEAD
+/* main {
+    background-color: #009ed2;
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+} */
+=======
 .main {
   background-color: #009ed2;
   min-height: 100vh;
   display: grid;
   place-items: center;
 }
+>>>>>>> development
 
 .card {
   border-radius: 8px;
