@@ -3,6 +3,7 @@ import UserPage from './pages/UserPage';
 import AdminPmPage from './pages/AdminPMPage';
 import AdminPage from './pages/AdminPage';
 import LoginPage from './pages/LoginPage';
+import { SidebarProvider } from './contexts/SidebarContext';
 import './App.css';
 
 function App() {
