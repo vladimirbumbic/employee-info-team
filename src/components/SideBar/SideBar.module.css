@@ -4,7 +4,6 @@
   align-items: flex-start;
   justify-content: flex-start;
   box-shadow: 4px 0px 8px 0px rgba(0, 0, 0, 0.15);
-  width: 20vw;
+  width: 25vw;
   padding-top: 20px;
-  z-index: 1;
 }
