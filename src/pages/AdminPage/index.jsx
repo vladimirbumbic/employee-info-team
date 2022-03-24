@@ -11,10 +11,12 @@ const AdminPage = () => {
   return (
     <main className={styles.mainContainer}>
       <Navbar role={role} />
-      {sidebarIsOpen && <SideBar />}
-      <div className={styles.componentContainer}>
-        <Countries />
-      </div>
+      <section className={styles.mainWrapper}>
+        {sidebarIsOpen && <SideBar />}
+        <div className={styles.componentContainer}>
+          <Countries />
+        </div>
+      </section>
     </main>
   );
 };
