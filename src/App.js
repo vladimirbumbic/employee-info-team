@@ -1,19 +1,22 @@
 import { Routes, Route } from 'react-router-dom';
-import UserPage from './pages/UserPage';
+
+import LoginPage from './pages/LoginPage';
+import { SidebarProvider } from './contexts/SidebarContext';
+import MainContent from './pages/MainContent';
 import './App.css';
 
 function App() {
-    return (
-        <div className="App">
-            <Routes>
-                {/* Ruta za obicnog usera */}
-                <Route path="/user" element={<UserPage />} />
+  return (
+    <SidebarProvider>
+      <div className="App">
+        <Routes>
+          <Route exact path="/" element={<LoginPage />} />
 
-                {/* <Route path="/admin" element={<AdminPage />} />
-                <Route path="/projectm" element={<PMPage />} /> */}
-            </Routes>
-        </div>
-    );
+          <Route exact path="/mainContent/*" element={<MainContent />} />
+        </Routes>
+      </div>
+    </SidebarProvider>
+  );
 }
 
 export default App;

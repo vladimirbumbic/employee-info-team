@@ -1,0 +1,14 @@
+.mainWrapper {
+  display: flex;
+  margin-top: 60px;
+  min-height: calc(100vh - 60px);
+}
+
+.componentContainer {
+  display: flex;
+  width: 100%;
+  min-width: 70vw;
+  align-items: center;
+  justify-content: center;
+  background-color: #f5f9fd;
+}

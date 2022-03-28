@@ -1,20 +1,20 @@
 .navbar {
-  height: 50px;
+  height: 60px;
   width: 100%;
   top: 0;
   left: 0;
   position: fixed;
   background-color: #004e80;
   display: grid;
-  grid-template-columns: 2fr 5fr 1fr;
+  grid-template-columns: 1fr 4fr 1fr;
   align-items: center;
   column-gap: 25px;
   color: #fff;
-  padding: 0 10px;
+  padding: 0 20px 0 30px;
 }
 
 .navbarUser {
-  height: 50px;
+  height: 60px;
   width: 100%;
   top: 0;
   left: 0;
@@ -23,7 +23,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 10px;
+  padding: 0 25px 0 30px;
   color: #fff;
 }
 
@@ -32,39 +32,40 @@
 }
 
 .nameWrapper .hamburgerIcon {
-  font-size: 20px;
+  font-size: 25px;
   margin-right: 8px;
   cursor: pointer;
 }
 
-.nameWrapper p {
-  font-size: 18px;
+.nameWrapper .name {
+  font-size: 22px;
   font-weight: 500;
 }
 
-.searchWrapper form {
+.searchWrapper .form {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .searchWrapper .inputWrapper {
-  padding: 6px 10px;
+  padding: 8px 12px;
   border: 0.5px solid #ffffff30;
   border-radius: 6px;
   display: flex;
   align-items: center;
+  margin-right: 55px;
 }
 
 .inputWrapper input {
   background-color: transparent;
-  font-size: 12px;
+  font-size: 14px;
   border: none;
   outline: none;
   color: white;
 }
 
 .inputWrapper .searchIcon {
-  font-size: 15px;
+  font-size: 16px;
   margin-right: 8px;
   cursor: pointer;
 }
@@ -87,15 +88,33 @@
   background-color: white;
   color: #009ed2;
   padding: 5px 10px;
-  font-size: 14px;
+  font-size: 16px;
 }
 
-.logoWrapper img {
+.logoWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logoWrapper .logout {
+  text-decoration: none;
+  font-size: 18px;
+  color: white;
+}
+
+.logoWrapper .avatarLogo {
   display: block;
   justify-self: center;
   width: 25px;
   height: 25px;
   border-radius: 50%;
-  margin-left: auto;
+  margin-left: 25px;
   cursor: pointer;
+}
+
+@media (min-width: 1192px) {
+  .name {
+    font-size: 14px;
+  }
 }

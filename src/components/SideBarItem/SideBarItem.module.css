@@ -1,0 +1,29 @@
+.sideBarOptionContainer {
+  color: #92a4b8;
+  font-size: 20px;
+  font-weight: 500;
+  width: 100%;
+}
+
+.sideBarOption {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.sideBarOption:hover {
+  cursor: pointer;
+  background-color: #cfebf5;
+  color: #00245d;
+  width: 100%;
+}
+
+.sideBarIcon {
+  margin-left: 2vw;
+}
+
+.sideBarTitle {
+  margin-left: 15px;
+}

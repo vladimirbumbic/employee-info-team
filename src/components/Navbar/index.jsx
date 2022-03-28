@@ -1,10 +1,19 @@
+import { useContext } from 'react';
+import SidebarContext from '../../contexts/SidebarContext';
 import styles from './Navbar.module.css';
 import AvatarLogo from '../../assets/avatarIcon.png';
 
 import { BiMenu } from 'react-icons/bi';
 import { BsSearch } from 'react-icons/bs';
+import { NavLink } from 'react-router-dom';
 
 const Navbar = ({ role }) => {
+  const { sidebarIsOpen, setSidebarIsOpen } = useContext(SidebarContext);
+
+  const toggleSidebar = () => {
+    setSidebarIsOpen(!sidebarIsOpen);
+  };
+
   return (
     <nav
       className={
@@ -12,12 +21,14 @@ const Navbar = ({ role }) => {
       }
     >
       <div className={styles.nameWrapper}>
-        {role && <BiMenu className={styles.hamburgerIcon} />}
-        <p>Quantox Image</p>
+        {role && (
+          <BiMenu className={styles.hamburgerIcon} onClick={toggleSidebar} />
+        )}
+        <p className={styles.name}>Quantox</p>
       </div>
       {role && (
         <div className={styles.searchWrapper}>
-          <form>
+          <form className={styles.form}>
             <div className={styles.inputWrapper}>
               <BsSearch className={styles.searchIcon} />
               <input type="text" placeholder="Search Employee" />
@@ -34,9 +45,12 @@ const Navbar = ({ role }) => {
           </form>
         </div>
       )}
-      <div className={styles.logoWrapper}>
-        <img src={AvatarLogo} alt="avatar" />
-      </div>
+      <NavLink to="/" style={{ textDecoration: 'none' }}>
+        <div className={styles.logoWrapper}>
+          <p className={styles.logout}>Logout</p>
+          <img src={AvatarLogo} alt="avatar" className={styles.avatarLogo} />
+        </div>
+      </NavLink>
     </nav>
   );
 };
