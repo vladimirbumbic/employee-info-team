@@ -10,7 +10,6 @@ function App() {
     <div className="App">
       <SidebarProvider>
         <Routes>
-          {/* Ruta za obicnog usera */}
           <Route path="/" element={<LoginPage />} />
           <Route path="/user" element={<UserPage />} />
           <Route path="/admin" element={<AdminPage />} />
