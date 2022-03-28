@@ -17,6 +17,7 @@ import { useContext } from 'react';
 const MainContent = () => {
   const { sidebarIsOpen } = useContext(SidebarContext);
   const role = 'admin';
+
   return (
     <main className={styles.mainContainer}>
       <Navbar role={role} />
