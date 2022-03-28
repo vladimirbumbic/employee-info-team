@@ -1,3 +1,5 @@
+import { useContext } from 'react';
+import SidebarContext from '../../contexts/SidebarContext';
 import styles from './Navbar.module.css';
 import AvatarLogo from '../../assets/avatarIcon.png';
 
@@ -6,6 +8,12 @@ import { BsSearch } from 'react-icons/bs';
 import { NavLink } from 'react-router-dom';
 
 const Navbar = ({ role }) => {
+  const { sidebarIsOpen, setSidebarIsOpen } = useContext(SidebarContext);
+
+  const toggleSidebar = () => {
+    setSidebarIsOpen(!sidebarIsOpen);
+  };
+
   return (
     <nav
       className={
@@ -13,7 +21,9 @@ const Navbar = ({ role }) => {
       }
     >
       <div className={styles.nameWrapper}>
-        {role && <BiMenu className={styles.hamburgerIcon} />}
+        {role && (
+          <BiMenu className={styles.hamburgerIcon} onClick={toggleSidebar} />
+        )}
         <p className={styles.name}>Quantox</p>
       </div>
       {role && (

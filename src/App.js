@@ -1,6 +1,8 @@
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import MainContent from './pages/MainContent';
+import { Routes, Route } from 'react-router-dom';
+import UserPage from './pages/UserPage';
+import AdminPage from './pages/AdminPage';
 import LoginPage from './pages/LoginPage';
+import { SidebarProvider } from './contexts/SidebarContext';
 import './App.css';
 import Login from './components/Login';
 
