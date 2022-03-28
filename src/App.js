@@ -3,6 +3,7 @@ import UserPage from './pages/UserPage';
 import AdminPage from './pages/AdminPage';
 import LoginPage from './pages/LoginPage';
 import { SidebarProvider } from './contexts/SidebarContext';
+import MainContent from './pages/MainContent';
 import './App.css';
 import Login from './components/Login';
 
