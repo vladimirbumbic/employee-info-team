@@ -5,6 +5,7 @@ import AvatarLogo from '../../assets/avatarIcon.png';
 
 import { BiMenu } from 'react-icons/bi';
 import { BsSearch } from 'react-icons/bs';
+import { NavLink } from 'react-router-dom';
 
 const Navbar = ({ role }) => {
   const { sidebarIsOpen, setSidebarIsOpen } = useContext(SidebarContext);
@@ -44,12 +45,12 @@ const Navbar = ({ role }) => {
           </form>
         </div>
       )}
-      <div className={styles.logoWrapper}>
-        <a href="#" className={styles.logout}>
-          Logout
-        </a>
-        <img src={AvatarLogo} alt="avatar" className={styles.avatarLogo} />
-      </div>
+      <NavLink to="/" style={{ textDecoration: 'none' }}>
+        <div className={styles.logoWrapper}>
+          <p className={styles.logout}>Logout</p>
+          <img src={AvatarLogo} alt="avatar" className={styles.avatarLogo} />
+        </div>
+      </NavLink>
     </nav>
   );
 };

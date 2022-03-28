@@ -12,53 +12,58 @@ const SideBar = () => {
     {
       title: 'Pending',
       icon: <FaUserClock />,
-      link: '/pending',
+      link: 'mainContent/pending',
     },
     {
       title: 'Countries',
       icon: <FaMapMarkedAlt />,
-      link: '/countries',
+      link: 'mainContent/countries',
     },
     {
       title: 'Cities',
       icon: <MdOutlineLocationCity />,
-      link: '/cities',
+      link: 'mainContent/cities',
     },
     {
       title: 'Seniorities',
       icon: <GiLaurelCrown />,
-      link: '/seniorities',
+      link: 'mainContent/seniorities',
     },
     {
       title: 'Positions',
       icon: <BsPuzzleFill />,
-      link: '/positions',
+      link: 'mainContent/positions',
     },
     {
       title: 'Projects',
       icon: <AiOutlineFundProjectionScreen />,
-      link: '/projects',
+      link: 'mainContent/projects',
     },
     {
       title: 'Employees',
       icon: <BsFillPeopleFill />,
-      link: '/employees',
+      link: 'mainContent/employees',
     },
     {
       title: 'PManagers',
       icon: <MdManageAccounts />,
-      link: '/pmanagers',
+      link: 'mainContent/pManagers',
     },
     {
       title: 'Admins',
       icon: <RiAdminLine />,
-      link: '/admins',
+      link: 'mainContent/admins',
     },
   ];
   return (
     <main className={styles.sideBarContainer}>
       {options.map((option, index) => (
-        <SideBarItem key={index} title={option.title} icon={option.icon} />
+        <SideBarItem
+          key={index}
+          title={option.title}
+          icon={option.icon}
+          link={option.link}
+        />
       ))}
     </main>
   );

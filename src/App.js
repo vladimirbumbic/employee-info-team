@@ -4,18 +4,22 @@ import AdminPage from './pages/AdminPage';
 import LoginPage from './pages/LoginPage';
 import { SidebarProvider } from './contexts/SidebarContext';
 import './App.css';
+import Login from './components/Login';
 
 function App() {
   return (
     <div className="App">
-      <SidebarProvider>
-        <Routes>
-          <Route path="/" element={<LoginPage />} />
-          <Route path="/user" element={<UserPage />} />
-          <Route path="/admin" element={<AdminPage />} />
-          {/*   <Route path="/projectm" element={<PMPage />} /> */}
-        </Routes>
-      </SidebarProvider>
+      {/* Ruta za obicnog usera */}
+      {/* <Route path="/user" element={<UserPage />} />}
+
+        // <Route path="/adminpm" element={<AdminPmPage />} /> */}
+      <Routes>
+        <Route exact path="/" element={<LoginPage />} />
+
+        <Route exact path="/mainContent/*" element={<MainContent />} />
+      </Routes>
+
+      {/*   <Route path="/projectm" element={<PMPage />} /> */}
     </div>
   );
 }
