@@ -6,9 +6,30 @@ import { GiLaurelCrown } from 'react-icons/gi';
 import { BsPuzzleFill, BsFillPeopleFill } from 'react-icons/bs';
 import { AiOutlineFundProjectionScreen } from 'react-icons/ai';
 import { RiAdminLine } from 'react-icons/ri';
+import { useState } from 'react';
+
+const roles = ['admin', 'manager'];
 
 const SideBar = () => {
-  const options = [
+  const [role, setRole] = useState(roles[1]);
+  const managerOptions = [
+    {
+      title: 'All Employees',
+      icon: <FaUserClock />,
+      link: 'mainContent/allemployees',
+    },
+    {
+      title: 'My Employees',
+      icon: <FaUserClock />,
+      link: 'mainContent/myEmployees',
+    },
+    {
+      title: 'All Projects',
+      icon: <FaUserClock />,
+      link: 'mainContent/allProjects',
+    },
+  ];
+  const adminOptions = [
     {
       title: 'Pending',
       icon: <FaUserClock />,
@@ -57,14 +78,23 @@ const SideBar = () => {
   ];
   return (
     <main className={styles.sideBarContainer}>
-      {options.map((option, index) => (
-        <SideBarItem
-          key={index}
-          title={option.title}
-          icon={option.icon}
-          link={option.link}
-        />
-      ))}
+      {role === 'admin'
+        ? adminOptions.map((option, index) => (
+            <SideBarItem
+              key={index}
+              title={option.title}
+              icon={option.icon}
+              link={option.link}
+            />
+          ))
+        : managerOptions.map((option, index) => (
+            <SideBarItem
+              key={index}
+              title={option.title}
+              icon={option.icon}
+              link={option.link}
+            />
+          ))}
     </main>
   );
 };
