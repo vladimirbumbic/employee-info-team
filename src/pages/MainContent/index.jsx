@@ -17,23 +17,26 @@ import { useContext } from 'react';
 const MainContent = () => {
   const { sidebarIsOpen } = useContext(SidebarContext);
   const role = 'admin';
+
   return (
     <main className={styles.mainContainer}>
       <Navbar role={role} />
-      {sidebarIsOpen && <SideBar />}
-      <div className={styles.componentContainer}>
-        <Routes>
-          <Route path="mainContent/countries" element={<Countries />} />
-          <Route path="mainContent/pending" element={<Pending />} />
-          <Route path="mainContent/cities" element={<Cities />} />
-          <Route path="mainContent/seniorities" element={<Seniorities />} />
-          <Route path="mainContent/positions" element={<Positions />} />
-          <Route path="mainContent/projects" element={<Projects />} />
-          <Route path="mainContent/employees" element={<Employees />} />
-          <Route path="mainContent/pManagers" element={<PManagers />} />
-          <Route path="mainContent/admins" element={<Admins />} />
-        </Routes>
-      </div>
+      <section className={styles.mainContentWrapper}>
+        {sidebarIsOpen && <SideBar />}
+        <div className={styles.componentContainer}>
+          <Routes>
+            <Route path="mainContent/countries" element={<Countries />} />
+            <Route path="mainContent/pending" element={<Pending />} />
+            <Route path="mainContent/cities" element={<Cities />} />
+            <Route path="mainContent/seniorities" element={<Seniorities />} />
+            <Route path="mainContent/positions" element={<Positions />} />
+            <Route path="mainContent/projects" element={<Projects />} />
+            <Route path="mainContent/employees" element={<Employees />} />
+            <Route path="mainContent/pManagers" element={<PManagers />} />
+            <Route path="mainContent/admins" element={<Admins />} />
+          </Routes>
+        </div>
+      </section>
     </main>
   );
 };

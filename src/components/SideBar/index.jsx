@@ -11,7 +11,7 @@ import { useState } from 'react';
 const roles = ['admin', 'manager'];
 
 const SideBar = () => {
-  const [role, setRole] = useState(roles[1]);
+  const [role, setRole] = useState(roles[0]);
   const managerOptions = [
     {
       title: 'All Employees',
