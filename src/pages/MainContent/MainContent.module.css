@@ -1,14 +1,14 @@
+.mainContentWrapper {
+  display: flex;
+  margin-top: 60px;
+  height: calc(100vh - 60px);
+}
+
 .componentContainer {
   display: flex;
   align-items: center;
   justify-content: center;
-  position: fixed;
-  top: 60px;
-  left: 20vw;
-  width: 80vw;
-  height: 93vh;
   background-color: #f5f9fd;
   overflow-y: scroll;
-  z-index: 0;
-  padding-bottom: 10vh;
+  width: 100%;
 }
