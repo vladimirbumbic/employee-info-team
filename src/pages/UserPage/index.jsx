@@ -2,7 +2,7 @@ import WelcomeUser from '../../components/WelcomeUser';
 import Navbar from '../../components/Navbar';
 
 const UserPage = () => {
-  const role = 'admin';
+  const role = '';
   return (
     <>
       <Navbar role={role} />

@@ -11,8 +11,8 @@ function App() {
       <SidebarProvider>
         <Routes>
           {/* Ruta za obicnog usera */}
-          {/* <Route path="/user" element={<UserPage />} /> */}
           <Route path="/" element={<LoginPage />} />
+          <Route path="/user" element={<UserPage />} />
           <Route path="/admin" element={<AdminPage />} />
           {/*   <Route path="/projectm" element={<PMPage />} /> */}
         </Routes>
