@@ -6,6 +6,7 @@ const CityItem = (props) => {
   const handleChangeEditable = () => {
     editable === 'true' ? setEditable('false') : setEditable('true');
   };
+
   return (
     <div className={styles.cityItemContainer}>
       <div
