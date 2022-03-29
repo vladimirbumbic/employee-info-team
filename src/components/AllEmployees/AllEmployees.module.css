@@ -4,9 +4,12 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  max-height: calc(100vh + 20px);
+  padding-top:50px;
+  /* margin-top:50px; */
 }
 
-.header {
+/* .header {
   font-size: 34px;
   display: flex;
   justify-content: space-between;
@@ -15,8 +18,8 @@
   padding-top: 80px;
   padding-bottom: 30px;
   color: #92a4b8;
-}
-
+} */
+/* 
 .header button {
   color: white;
   width: 210px;
@@ -39,7 +42,7 @@
 .hr {
   width: 79.5%;
   margin: 0 auto;
-}
+} */
 
 .employees {
   display: flex;
@@ -63,6 +66,7 @@
   margin: 5px;
   border-radius: 6px;
   cursor: pointer;
+  margin-bottom:50px
 }
 
 .paginationWrapper .paginatedBtns.active {
