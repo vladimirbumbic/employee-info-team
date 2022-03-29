@@ -1,15 +1,15 @@
-import styles from './Employees.module.css';
-import EmployeeCard from '../EmployeeCard';
-import EmployeeData from '../EmployeeData';
+// import styles from './Employees.module.css';
+// import EmployeeCard from '../EmployeeCard';
+// import EmployeeData from '../EmployeeData';
 
-const Employees = () => {
-  return (
-    <div className={styles.employeesContainer}>
-      {EmployeeData.map((employee) => (
-        <EmployeeCard key={employee.id} card={employee} />
-      ))}
-    </div>
-  );
-};
+// const Employees = () => {
+//   return (
+//     <div className={styles.employeesContainer}>
+//       {EmployeeData.map((employee) => (
+//         <EmployeeCard key={employee.id} card={employee} />
+//       ))}
+//     </div>
+//   );
+// };
 
-export default Employees;
+// export default Employees;
