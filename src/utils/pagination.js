@@ -1,5 +1,5 @@
 export const pagination = (list) => {
-  const itemsPerPage = 10;
+  const itemsPerPage = 8;
   const pages = Math.ceil(list.length / itemsPerPage);
 
   const newList = Array.from({ length: pages }, (_, index) => {
