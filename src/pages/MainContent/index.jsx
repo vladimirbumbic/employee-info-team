@@ -17,6 +17,7 @@ import { useContext } from 'react';
 const MainContent = () => {
   const { sidebarIsOpen } = useContext(SidebarContext);
   const role = 'admin';
+  console.log('renderovao se maincontent');
 
   return (
     <main className={styles.mainContainer}>

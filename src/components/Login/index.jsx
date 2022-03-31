@@ -1,12 +1,14 @@
-import { useContext } from 'react';
-import LoginContext from '../../contexts/LoginContext';
 import styles from './Login.module.css';
 import { NavLink } from 'react-router-dom';
 import { FaUserCircle } from 'react-icons/fa';
+import login from '../../api/login';
+import useApi from '../../hooks/useApi';
 import { useEffect } from 'react';
 
 const Login = () => {
-  const handleLogin = useContext(LoginContext);
+  const { data, request } = useApi(login);
+  console.log('renderovao se login page');
+
   return (
     <main className={styles.pageContainer}>
       <main className={styles.mainContainer}>
@@ -22,7 +24,7 @@ const Login = () => {
         </div>
         <div className={styles.loginGoogleOauthContainer}>
           {/* <NavLink to="/mainContent" style={{ textDecoration: 'none' }}> */}
-          <div className={styles.googleOAuthContainer} onClick={handleLogin}>
+          <div className={styles.googleOAuthContainer} onClick={request}>
             <div className={styles.googleOAuthLogo}></div>
             <p className={styles.googleOAuthTitle}>
               Continue with <span className={styles.google}>Google</span>
