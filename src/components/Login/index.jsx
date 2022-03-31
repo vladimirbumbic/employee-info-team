@@ -1,8 +1,11 @@
+import { useContext } from 'react';
 import styles from './Login.module.css';
 import { NavLink } from 'react-router-dom';
 import { FaUserCircle } from 'react-icons/fa';
+import AuthContext from '../../contexts/authContext';
 
 const Login = () => {
+  const handleLogin = useContext(AuthContext);
   return (
     <main className={styles.pageContainer}>
       <main className={styles.mainContainer}>
@@ -16,14 +19,14 @@ const Login = () => {
           </div>
         </div>
         <div className={styles.loginGoogleOauthContainer}>
-          <NavLink to="/mainContent" style={{ textDecoration: 'none' }}>
-            <div className={styles.googleOAuthContainer}>
-              <div className={styles.googleOAuthLogo}></div>
-              <p className={styles.googleOAuthTitle}>
-                Continue with <span className={styles.google}>Google</span>
-              </p>
-            </div>
-          </NavLink>
+          {/* <NavLink to="/mainContent" style={{ textDecoration: 'none' }}> */}
+          <div className={styles.googleOAuthContainer} onClick={handleLogin}>
+            <div className={styles.googleOAuthLogo}></div>
+            <p className={styles.googleOAuthTitle}>
+              Continue with <span className={styles.google}>Google</span>
+            </p>
+          </div>
+          {/* </NavLink> */}
         </div>
       </main>
     </main>
