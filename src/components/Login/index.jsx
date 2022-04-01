@@ -2,12 +2,10 @@ import styles from './Login.module.css';
 import { NavLink } from 'react-router-dom';
 import { FaUserCircle } from 'react-icons/fa';
 import login from '../../api/login';
-import useApi from '../../hooks/useApi';
-import { useEffect } from 'react';
+import { useApi } from '../../hooks/useApi';
 
 const Login = () => {
   const { data, request } = useApi(login);
-  console.log('renderovao se login page');
 
   return (
     <main className={styles.pageContainer}>
