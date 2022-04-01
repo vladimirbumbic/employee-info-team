@@ -12,10 +12,10 @@ const AllEmployees = () => {
   const [allEmployees, setAllEmployees] = useState(pagination(EmployeeData));
   const [paginatedEmployees, setPaginatedEmployees] = useState([]);
 
-  useEffect(() => {
-    setPaginatedEmployees(allEmployees[page]);
-    console.log(allEmployees.length, page);
-  }, [page]);
+  // useEffect(() => {
+  //   setPaginatedEmployees(allEmployees[page]);
+  //   console.log(allEmployees.length, page);
+  // }, [page]);
 
   const handleNextBtn = () => {
     setPage((oldState) => {

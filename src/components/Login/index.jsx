@@ -2,10 +2,12 @@ import { useContext } from 'react';
 import styles from './Login.module.css';
 import { NavLink } from 'react-router-dom';
 import { FaUserCircle } from 'react-icons/fa';
-import AuthContext from '../../contexts/authContext';
+import login from '../../api/login';
+import { useApi } from '../../hooks/useApi';
 
 const Login = () => {
-  const handleLogin = useContext(AuthContext);
+  const { data, request } = useApi(login);
+
   return (
     <main className={styles.pageContainer}>
       <main className={styles.mainContainer}>
@@ -15,12 +17,17 @@ const Login = () => {
             <div className={styles.loginTitleIcon}>
               <FaUserCircle className={styles.userIcon} />
               <p className={styles.loginTitle}>Login</p>
+              <a href="http://localhost:5000/auth/google">Login</a>
             </div>
           </div>
         </div>
         <div className={styles.loginGoogleOauthContainer}>
           {/* <NavLink to="/mainContent" style={{ textDecoration: 'none' }}> */}
+<<<<<<< HEAD
+          <div className={styles.googleOAuthContainer} onClick={request}>
+=======
           <div className={styles.googleOAuthContainer} onClick={handleLogin}>
+>>>>>>> development
             <div className={styles.googleOAuthLogo}></div>
             <p className={styles.googleOAuthTitle}>
               Continue with <span className={styles.google}>Google</span>
