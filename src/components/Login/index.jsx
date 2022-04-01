@@ -23,11 +23,7 @@ const Login = () => {
         </div>
         <div className={styles.loginGoogleOauthContainer}>
           {/* <NavLink to="/mainContent" style={{ textDecoration: 'none' }}> */}
-<<<<<<< HEAD
           <div className={styles.googleOAuthContainer} onClick={request}>
-=======
-          <div className={styles.googleOAuthContainer} onClick={handleLogin}>
->>>>>>> development
             <div className={styles.googleOAuthLogo}></div>
             <p className={styles.googleOAuthTitle}>
               Continue with <span className={styles.google}>Google</span>
