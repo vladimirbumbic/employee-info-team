@@ -2,15 +2,17 @@ import { apiInstance } from './axios';
 import history from '../components/CustomRouter/history';
 
 const login = async () => {
+  window.localStorage.clear();
   let response;
   try {
     response = await apiInstance.get('auth/google');
     console.log(response);
+    console.log(response.data.token);
   } catch (err) {
     console.error(err);
   }
 
-  if (response?.status === 200) {
+  if (response.data.token !== undefined) {
     localStorage.setItem('token', response.data.token);
     localStorage.setItem('role', response.data.role);
 
@@ -20,9 +22,11 @@ const login = async () => {
       history.push('/maincontent');
     }
 
-    if (role === null) {
-      console.log('prikazu welcome user komponentu');
+    if (role === 'null') {
+      history.push('/welcomeUser');
     }
+  } else {
+    localStorage.setItem('token', false);
   }
 };
 
