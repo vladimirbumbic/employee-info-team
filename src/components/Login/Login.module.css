@@ -60,6 +60,7 @@
 
 .loginGoogleOauthContainer {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 50%;
@@ -82,6 +83,12 @@
   color: white;
   background-color: rgb(151, 224, 175);
   transition: 0.3s;
+}
+
+.loginLink {
+  text-decoration: none;
+  margin-top: 10px;
+  color: red;
 }
 
 .googleOAuthLogo {

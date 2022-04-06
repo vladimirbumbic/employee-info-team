@@ -14,6 +14,10 @@ const Navbar = ({ role }) => {
     setSidebarIsOpen(!sidebarIsOpen);
   };
 
+  const handleLogout = () => {
+    localStorage.clear();
+  };
+
   return (
     <nav
       className={
@@ -47,7 +51,9 @@ const Navbar = ({ role }) => {
       )}
       <NavLink to="/" style={{ textDecoration: 'none' }}>
         <div className={styles.logoWrapper}>
-          <p className={styles.logout}>Logout</p>
+          <p className={styles.logout} onClick={handleLogout}>
+            Logout
+          </p>
           <img src={AvatarLogo} alt="avatar" className={styles.avatarLogo} />
         </div>
       </NavLink>

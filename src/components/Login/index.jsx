@@ -1,12 +1,19 @@
-import { useContext } from 'react';
 import styles from './Login.module.css';
-import { NavLink } from 'react-router-dom';
+import { useState, useContext } from 'react';
 import { FaUserCircle } from 'react-icons/fa';
-import login from '../../api/login';
+// import login from '../../api/login';
 import { useApi } from '../../hooks/useApi';
+import AuthContext from '../../contexts/AuthContextProvider';
 
 const Login = () => {
+  const { login } = useContext(AuthContext);
+  let [googleOAuthClicked, setGoogleOAuthClicked] = useState(false);
   const { data, request } = useApi(login);
+
+  const handleLogin = async () => {
+    setGoogleOAuthClicked(true);
+    request();
+  };
 
   return (
     <main className={styles.pageContainer}>
@@ -17,19 +24,26 @@ const Login = () => {
             <div className={styles.loginTitleIcon}>
               <FaUserCircle className={styles.userIcon} />
               <p className={styles.loginTitle}>Login</p>
-              <a href="http://localhost:5000/auth/google">Login</a>
             </div>
           </div>
         </div>
         <div className={styles.loginGoogleOauthContainer}>
-          {/* <NavLink to="/mainContent" style={{ textDecoration: 'none' }}> */}
-          <div className={styles.googleOAuthContainer} onClick={request}>
+          <div className={styles.googleOAuthContainer} onClick={handleLogin}>
             <div className={styles.googleOAuthLogo}></div>
             <p className={styles.googleOAuthTitle}>
               Continue with <span className={styles.google}>Google</span>
             </p>
           </div>
-          {/* </NavLink> */}
+
+          {googleOAuthClicked && localStorage.getItem('token') === 'false' ? (
+            <a
+              className={styles.loginLink}
+              href="http://localhost:5000/auth/google"
+              target="blank"
+            >
+              Please Login in your Google account!
+            </a>
+          ) : null}
         </div>
       </main>
     </main>
