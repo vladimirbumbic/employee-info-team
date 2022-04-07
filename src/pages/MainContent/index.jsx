@@ -5,7 +5,7 @@ import Cities from '../../components/Cities';
 import Seniorities from '../../components/Seniorities';
 import Positions from '../../components/Positions';
 import Projects from '../../components/Projects';
-import Employees from '../../components/Employees';
+import AllEmployees from '../../components/AllEmployees';
 import PManagers from '../../components/PManagers';
 import Admins from '../../components/Admins';
 import styles from './MainContent.module.css';
@@ -17,6 +17,7 @@ import { useContext } from 'react';
 const MainContent = () => {
   const { sidebarIsOpen } = useContext(SidebarContext);
   const role = 'admin';
+
   return (
     <main className={styles.mainContainer}>
       <Navbar role={role} />
@@ -30,7 +31,7 @@ const MainContent = () => {
             <Route path="mainContent/seniorities" element={<Seniorities />} />
             <Route path="mainContent/positions" element={<Positions />} />
             <Route path="mainContent/projects" element={<Projects />} />
-            <Route path="mainContent/employees" element={<Employees />} />
+            <Route path="mainContent/employees" element={<AllEmployees />} />
             <Route path="mainContent/pManagers" element={<PManagers />} />
             <Route path="mainContent/admins" element={<Admins />} />
           </Routes>
