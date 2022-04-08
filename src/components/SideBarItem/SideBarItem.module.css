@@ -5,6 +5,11 @@
   width: 100%;
 }
 
+.sideBarOptionContainer .link {
+  text-decoration: none;
+  color: #92a4b8;
+}
+
 .sideBarOption {
   display: flex;
   align-items: center;
@@ -13,11 +18,10 @@
   padding-bottom: 10px;
 }
 
-.sideBarOption:hover {
+.sideBarOptionContainer:hover {
   cursor: pointer;
   background-color: #cfebf5;
   color: #00245d;
-  width: 100%;
 }
 
 .sideBarIcon {

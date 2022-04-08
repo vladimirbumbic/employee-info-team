@@ -1,4 +1,4 @@
-section {
+.errorWrapper {
   min-height: 100vh;
   display: flex;
   justify-content: center;
@@ -6,10 +6,10 @@ section {
   flex-direction: column;
 }
 
-section .status {
+.errorWrapper .status {
   font-size: 82px;
 }
 
-section h3 {
+.errorWrapper h3 {
   font-size: 32px;
 }
