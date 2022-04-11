@@ -1,16 +1,50 @@
-import { useState } from 'react';
-import React from 'react';
-import login from '../services/login';
-const AuthContext = React.createContext();
+import { useState, createContext } from 'react';
+import history from '../components/CustomRouter/history';
+
+const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [jwt, setJwt] = useState('');
-  const handleLogin = async () => {
-    const loginData = await login();
-    console.log(loginData.data);
+  const [loginData, setLoginData] = useState(
+    localStorage.getItem('loginData')
+      ? JSON.parse(localStorage.getItem('loginData'))
+      : null,
+  );
+
+  const handleLogin = async (googleData) => {
+    const res = await fetch('api/google-login', {
+      method: 'POST',
+      body: JSON.stringify({
+        token: googleData.tokenId,
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    console.log(googleData);
+
+    const data = await res.json();
+
+    setLoginData(data);
+    console.log(loginData);
+    localStorage.setItem('loginData', JSON.stringify(data));
   };
+
+  const handleLogOut = () => {
+    localStorage.removeItem('loginData');
+    history.push('/');
+    setLoginData(null);
+  };
+
+  const handleLoginFailure = (result) => {
+    alert(result);
+  };
+
   return (
-    <AuthContext.Provider value={handleLogin}>{children}</AuthContext.Provider>
+    <AuthContext.Provider
+      value={{ loginData, handleLogin, handleLogOut, handleLoginFailure }}
+    >
+      {children}
+    </AuthContext.Provider>
   );
 };
 

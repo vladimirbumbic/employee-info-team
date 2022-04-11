@@ -1,0 +1,15 @@
+.errorWrapper {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.errorWrapper .status {
+  font-size: 82px;
+}
+
+.errorWrapper h3 {
+  font-size: 32px;
+}
