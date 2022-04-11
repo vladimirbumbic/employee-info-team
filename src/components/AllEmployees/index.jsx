@@ -12,10 +12,10 @@ const AllEmployees = () => {
   const [allEmployees, setAllEmployees] = useState(pagination(EmployeeData));
   const [paginatedEmployees, setPaginatedEmployees] = useState([]);
 
-  useEffect(() => {
-    setPaginatedEmployees(allEmployees[page]);
-    console.log(allEmployees.length, page);
-  }, [page]);
+  // useEffect(() => {
+  //   setPaginatedEmployees(allEmployees[page]);
+  //   console.log(allEmployees.length, page);
+  // }, [page]);
 
   const handleNextBtn = () => {
     setPage((oldState) => {
@@ -44,14 +44,14 @@ const AllEmployees = () => {
 
   return (
     <div className={styles.background}>
-      <div className={styles.header}>
+      {/* <div className={styles.header}>
         <header>Employees</header>
         <button>
           <FaUserPlus />
           &nbsp;ADD NEW EMPLOYEE
         </button>
       </div>
-      <hr className={styles.hr}></hr>
+      <hr className={styles.hr}></hr> */}
       <div className={styles.employees}>
         {paginatedEmployees.map((card) => {
           return <EmployeeCard key={card.id} card={card} />;

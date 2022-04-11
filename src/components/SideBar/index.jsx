@@ -33,47 +33,47 @@ const SideBar = () => {
     {
       title: 'Pending',
       icon: <FaUserClock />,
-      link: 'mainContent/pending',
+      link: 'pending',
     },
     {
       title: 'Countries',
       icon: <FaMapMarkedAlt />,
-      link: 'mainContent/countries',
+      link: 'countries',
     },
     {
       title: 'Cities',
       icon: <MdOutlineLocationCity />,
-      link: 'mainContent/cities',
+      link: 'cities',
     },
     {
       title: 'Seniorities',
       icon: <GiLaurelCrown />,
-      link: 'mainContent/seniorities',
+      link: 'seniorities',
     },
     {
       title: 'Positions',
       icon: <BsPuzzleFill />,
-      link: 'mainContent/positions',
+      link: 'positions',
     },
     {
       title: 'Projects',
       icon: <AiOutlineFundProjectionScreen />,
-      link: 'mainContent/projects',
+      link: 'projects',
     },
     {
       title: 'Employees',
       icon: <BsFillPeopleFill />,
-      link: 'mainContent/employees',
+      link: 'employees',
     },
     {
       title: 'PManagers',
       icon: <MdManageAccounts />,
-      link: 'mainContent/pManagers',
+      link: 'pManagers',
     },
     {
       title: 'Admins',
       icon: <RiAdminLine />,
-      link: 'mainContent/admins',
+      link: 'admins',
     },
   ];
   return (

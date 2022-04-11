@@ -1,14 +1,18 @@
 import { useContext } from 'react';
 import SidebarContext from '../../contexts/SidebarContext';
-import styles from './Navbar.module.css';
+import AuthContext from '../../contexts/AuthContext';
+import style from './Navbar.module.css';
 import AvatarLogo from '../../assets/avatarIcon.png';
 
 import { BiMenu } from 'react-icons/bi';
 import { BsSearch } from 'react-icons/bs';
-import { NavLink } from 'react-router-dom';
 
-const Navbar = ({ role }) => {
+const Navbar = () => {
   const { sidebarIsOpen, setSidebarIsOpen } = useContext(SidebarContext);
+  const {
+    loginData: { photo, email, role },
+    handleLogOut,
+  } = useContext(AuthContext);
 
   const toggleSidebar = () => {
     setSidebarIsOpen(!sidebarIsOpen);
@@ -17,23 +21,25 @@ const Navbar = ({ role }) => {
   return (
     <nav
       className={
-        role === 'admin' || role === 'pm' ? styles.navbar : styles.navbarUser
+        role === 'SYSTEM_ADMIN' || role === 'pm'
+          ? style.navbar
+          : style.navbarUser
       }
     >
-      <div className={styles.nameWrapper}>
+      <div className={style.nameWrapper}>
         {role && (
-          <BiMenu className={styles.hamburgerIcon} onClick={toggleSidebar} />
+          <BiMenu className={style.hamburgerIcon} onClick={toggleSidebar} />
         )}
-        <p className={styles.name}>Quantox</p>
+        <p className={style.name}>Quantox</p>
       </div>
       {role && (
-        <div className={styles.searchWrapper}>
-          <form className={styles.form}>
-            <div className={styles.inputWrapper}>
-              <BsSearch className={styles.searchIcon} />
+        <div className={style.searchWrapper}>
+          <form className={style.form}>
+            <div className={style.inputWrapper}>
+              <BsSearch className={style.searchIcon} />
               <input type="text" placeholder="Search Employee" />
             </div>
-            <select name="fields" id="fields" className={styles.select}>
+            <select name="fields" id="fields" className={style.select}>
               <option value="name">Name</option>
               <option value="country">Country</option>
               <option value="city">City</option>
@@ -45,12 +51,16 @@ const Navbar = ({ role }) => {
           </form>
         </div>
       )}
-      <NavLink to="/" style={{ textDecoration: 'none' }}>
-        <div className={styles.logoWrapper}>
-          <p className={styles.logout}>Logout</p>
-          <img src={AvatarLogo} alt="avatar" className={styles.avatarLogo} />
+      <div className={style.logoWrapper}>
+        <div className={style.loginText}>
+          <p>You are now logged in as</p>
+          <p>{email}</p>
         </div>
-      </NavLink>
+        <img src={photo} alt="avatar" className={style.avatarLogo} />
+        <button className={style.btnLogout} onClick={handleLogOut}>
+          Logout
+        </button>
+      </div>
     </nav>
   );
 };

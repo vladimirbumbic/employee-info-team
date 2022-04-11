@@ -1,33 +1,59 @@
-import styles from './Login.module.css';
-import { NavLink } from 'react-router-dom';
-import { FaUserCircle } from 'react-icons/fa';
+import { useContext, useEffect } from 'react';
+import AuthContext from '../../contexts/AuthContext';
+import history from '../CustomRouter/history';
+import classes from './Login.module.css';
+import GoogleLogin from 'react-google-login';
 
-const Login = () => {
+function Login() {
+  const { loginData, handleLogin, handleLogOut, handleLoginFailure } =
+    useContext(AuthContext);
+
+  useEffect(() => {
+    if (!loginData) {
+      history.push('/');
+    } else if (loginData.role === null) {
+      history.push('newuser');
+    } else if (loginData.role === 'SYSTEM_ADMIN') {
+      history.push('mainContent/employees');
+    }
+  }, [loginData]);
+
   return (
-    <main className={styles.pageContainer}>
-      <main className={styles.mainContainer}>
-        <div className={styles.loginImageContainer}>
-          <div className={styles.laptopImage}></div>
-          <div className={styles.loginTitleContainer}>
-            <div className={styles.loginTitleIcon}>
-              <FaUserCircle className={styles.userIcon} />
-              <p className={styles.loginTitle}>Login</p>
-            </div>
+    <div className={classes.app}>
+      <header className={classes.header}>
+        <div className={classes.fade}>
+          <div className={classes.title}>
+            {loginData ? (
+              <p className={classes.p}></p>
+            ) : (
+              <p className={classes.p}>login</p>
+            )}
+          </div>
+          <div className={classes.btn}>
+            {loginData ? (
+              <div>
+                <h6 className={classes.logged}>
+                  You are now logged in as
+                  <span className={classes.span}> {loginData.email}</span>
+                </h6>
+                <button className={classes.logout} onClick={handleLogOut}>
+                  Log out
+                </button>
+              </div>
+            ) : (
+              <GoogleLogin
+                clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
+                buttonText="Log with Google"
+                onSuccess={handleLogin}
+                onFailure={handleLoginFailure}
+                cookiePolicy={'single_host_origin'}
+              ></GoogleLogin>
+            )}
           </div>
         </div>
-        <div className={styles.loginGoogleOauthContainer}>
-          <NavLink to="/mainContent" style={{ textDecoration: 'none' }}>
-            <div className={styles.googleOAuthContainer}>
-              <div className={styles.googleOAuthLogo}></div>
-              <p className={styles.googleOAuthTitle}>
-                Continue with <span className={styles.google}>Google</span>
-              </p>
-            </div>
-          </NavLink>
-        </div>
-      </main>
-    </main>
+      </header>
+    </div>
   );
-};
+}
 
 export default Login;

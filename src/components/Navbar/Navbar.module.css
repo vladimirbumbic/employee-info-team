@@ -97,10 +97,24 @@
   align-items: center;
 }
 
-.logoWrapper .logout {
-  text-decoration: none;
+.loginText p:first-child {
+  font-size: 12px;
+}
+
+.loginText p:nth-child(2) {
+  font-size: 12px;
+}
+
+.logoWrapper .btnLogout {
+  display: block;
   font-size: 18px;
   color: white;
+  background-color: #dc143c;
+  cursor: pointer;
+  border: none;
+  border-radius: 12px;
+  padding: 6px 14px;
+  margin-left: 25px;
 }
 
 .logoWrapper .avatarLogo {
@@ -109,8 +123,8 @@
   width: 25px;
   height: 25px;
   border-radius: 50%;
-  margin-left: 25px;
   cursor: pointer;
+  margin-left: 15px;
 }
 
 @media (min-width: 1192px) {
