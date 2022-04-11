@@ -1,17 +1,13 @@
 import { useState } from 'react';
-
 import EmployeeCard from '../EmployeeCard';
 import data from './data';
-import { pagination } from '../../utils/pagination';
-import styles from './AllEmployees.module.css';
+import style from './Employees.module.css';
 
-import { FaUserPlus } from 'react-icons/fa';
-
-const AllEmployees = () => {
+const Employees = () => {
   const [employees, setEmployees] = useState(data);
   return (
-    <div className={styles.background}>
-      <div className={styles.employees}>
+    <div className={style.background}>
+      <div className={style.employees}>
         {employees.map((card) => {
           return <EmployeeCard key={card.id} card={card} />;
         })}
@@ -20,4 +16,4 @@ const AllEmployees = () => {
   );
 };
 
-export default AllEmployees;
+export default Employees;

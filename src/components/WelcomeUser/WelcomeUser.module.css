@@ -7,7 +7,9 @@
 
 .card {
   border-radius: 8px;
-  max-width: 325px;
+  width: 275px;
+  height: 295px;
+  max-width: 355px;
   padding: 35px 25px;
   background-color: #f5f9fd;
   box-shadow: 2px 2px 30px 5px rgba(0, 0, 0, 0.3);
@@ -15,11 +17,13 @@
 }
 
 .card h2 {
-  margin: 15px 0;
+  margin-top: 45px;
+  margin-bottom: 15px;
 }
 
 .avatarWrapper img {
   max-width: 100%;
   width: 75px;
   height: 75px;
+  border-radius: 50%;
 }

@@ -1,0 +1,51 @@
+.background {
+  background: #f5f9fd;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  max-height: calc(100vh + 20px);
+  padding-top: 50px;
+  /* margin-top:50px; */
+}
+
+.employees {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 1400px;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin: 37px auto;
+}
+
+.paginationWrapper {
+  text-align: center;
+}
+
+.paginationWrapper .paginatedBtns {
+  padding: 8px 14px;
+  background-color: #004e80;
+  color: white;
+  border: none;
+  margin: 5px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-bottom: 50px;
+}
+
+.paginationWrapper .paginatedBtns.active {
+  background-color: #009ed2;
+}
+
+@media only screen and (max-width: 500px) {
+  .header {
+    font-size: 30px;
+  }
+  .header button {
+    width: 110px;
+    height: 32px;
+    font-size: 10px;
+    line-height: 10px;
+  }
+}
