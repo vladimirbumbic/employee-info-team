@@ -1,14 +1,14 @@
 .mainContentWrapper {
   display: flex;
   margin-top: 60px;
-  height: calc(100vh - 60px);
+  min-height: calc(100vh - 60px);
 }
 
 .componentContainer {
-  display: flex;
+  /* display: flex; */
   align-items: center;
   justify-content: center;
   background-color: #f5f9fd;
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
   width: 100%;
 }
