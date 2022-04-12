@@ -9,6 +9,7 @@ import { FaUserPlus } from 'react-icons/fa';
 
 const AllEmployees = () => {
   const [employees, setEmployees] = useState(data);
+
   return (
     <div className={styles.background}>
       <div className={styles.employees}>
