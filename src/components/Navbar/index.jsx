@@ -2,7 +2,6 @@ import { useContext } from 'react';
 import SidebarContext from '../../contexts/SidebarContext';
 import AuthContext from '../../contexts/AuthContext';
 import style from './Navbar.module.css';
-import AvatarLogo from '../../assets/avatarIcon.png';
 
 import { BiMenu } from 'react-icons/bi';
 import { BsSearch } from 'react-icons/bs';
@@ -19,20 +18,16 @@ const Navbar = () => {
   };
 
   return (
-    <nav
-      className={
-        role === 'SYSTEM_ADMIN' || role === 'pm'
-          ? style.navbar
-          : style.navbarUser
-      }
-    >
+    <nav className={role === 'EMPLOYEE' ? style.navbarUser : style.navbar}>
       <div className={style.nameWrapper}>
-        {role && (
+        {role === 'EMPLOYEE' ? (
+          ''
+        ) : (
           <BiMenu className={style.hamburgerIcon} onClick={toggleSidebar} />
         )}
         <p className={style.name}>Quantox</p>
       </div>
-      {role && (
+      {role === 'EMPLOYEE' || (
         <div className={style.searchWrapper}>
           <form className={style.form}>
             <div className={style.inputWrapper}>
@@ -52,10 +47,14 @@ const Navbar = () => {
         </div>
       )}
       <div className={style.logoWrapper}>
-        <div className={style.loginText}>
-          <p>You are now logged in as</p>
-          <p>{email}</p>
-        </div>
+        {role === 'EMPLOYEE' ? (
+          ''
+        ) : (
+          <div className={style.loginText}>
+            <p>You are now logged in as</p>
+            <p>{email}</p>
+          </div>
+        )}
         <img src={photo} alt="avatar" className={style.avatarLogo} />
         <button className={style.btnLogout} onClick={handleLogOut}>
           Logout

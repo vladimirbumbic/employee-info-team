@@ -24,12 +24,10 @@ export const AuthProvider = ({ children }) => {
         'Content-Type': 'application/json',
       },
     });
-    console.log(googleData);
 
     const data = await res.json();
-
     setLoginData(data);
-    console.log(loginData);
+
     localStorage.setItem('loginData', JSON.stringify(data));
 
     const allCountriesResponse = await getAllCountires();
