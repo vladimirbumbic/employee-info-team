@@ -51,10 +51,10 @@ const Countries = () => {
         </div>
       </form>
       <div>
-        {countries ? (
-          countries.map((country) => (
-            <CountryItem key={country.id} name={country.name} />
-          ))
+        {window.localStorage.getItem('countries') ? (
+          JSON.parse(window.localStorage.getItem('countries')).map(
+            (country) => <CountryItem key={country.id} name={country.name} />,
+          )
         ) : (
           <p>No countries added.</p>
         )}
