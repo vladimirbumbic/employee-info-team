@@ -1,48 +1,13 @@
 .background {
   background: #f5f9fd;
-  -webkit-user-select: none;
+  /* -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
   max-height: calc(100vh + 20px);
-  padding-top:50px;
+  padding-top: 50px; */
   /* margin-top:50px; */
 }
-
-/* .header {
-  font-size: 34px;
-  display: flex;
-  justify-content: space-between;
-  width: 80%;
-  margin: 0 auto;
-  padding-top: 80px;
-  padding-bottom: 30px;
-  color: #92a4b8;
-} */
-/* 
-.header button {
-  color: white;
-  width: 210px;
-  height: 32px;
-  background: #009ed2;
-  border: 1px solid #009ed2;
-  font-weight: bold;
-  font-size: 14px;
-  line-height: 18px;
-  border-radius: 4px;
-  cursor: pointer;
-  transition-duration: 0.4s;
-}
-
-.header button:hover {
-  background-color: #004e80;
-  color: white;
-}
-
-.hr {
-  width: 79.5%;
-  margin: 0 auto;
-} */
 
 .employees {
   display: flex;
@@ -66,7 +31,7 @@
   margin: 5px;
   border-radius: 6px;
   cursor: pointer;
-  margin-bottom:50px
+  margin-bottom: 50px;
 }
 
 .paginationWrapper .paginatedBtns.active {

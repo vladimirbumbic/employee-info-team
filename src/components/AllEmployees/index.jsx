@@ -4,8 +4,7 @@ import EmployeeCard from '../EmployeeCard';
 import EmployeeData from '../EmployeeData';
 import { pagination } from '../../utils/pagination';
 import styles from './AllEmployees.module.css';
-
-import { FaUserPlus } from 'react-icons/fa';
+import AddEmployee from '../AddEmployee';
 
 const AllEmployees = () => {
   const [page, setPage] = useState(0);
@@ -44,14 +43,8 @@ const AllEmployees = () => {
 
   return (
     <div className={styles.background}>
-      {/* <div className={styles.header}>
-        <header>Employees</header>
-        <button>
-          <FaUserPlus />
-          &nbsp;ADD NEW EMPLOYEE
-        </button>
-      </div>
-      <hr className={styles.hr}></hr> */}
+      <AddEmployee />
+
       <div className={styles.employees}>
         {paginatedEmployees.map((card) => {
           return <EmployeeCard key={card.id} card={card} />;

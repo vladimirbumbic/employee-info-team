@@ -1,9 +1,13 @@
 import { useState, createContext } from 'react';
 import history from '../components/CustomRouter/history';
+import { getAllCountires } from '../services/countries';
 
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
+  const [countries, setCountries] = useState(
+    JSON.parse(window.localStorage.getItem('countires')),
+  );
   const [loginData, setLoginData] = useState(
     localStorage.getItem('loginData')
       ? JSON.parse(localStorage.getItem('loginData'))
@@ -27,6 +31,14 @@ export const AuthProvider = ({ children }) => {
     setLoginData(data);
     console.log(loginData);
     localStorage.setItem('loginData', JSON.stringify(data));
+
+    const allCountriesResponse = await getAllCountires();
+    console.log(allCountriesResponse.data);
+    window.localStorage.setItem(
+      'countries',
+      JSON.stringify(allCountriesResponse.data),
+    );
+    setCountries(JSON.parse(window.localStorage.getItem('countries')));
   };
 
   const handleLogOut = () => {
@@ -41,7 +53,14 @@ export const AuthProvider = ({ children }) => {
 
   return (
     <AuthContext.Provider
-      value={{ loginData, handleLogin, handleLogOut, handleLoginFailure }}
+      value={{
+        loginData,
+        handleLogin,
+        handleLogOut,
+        handleLoginFailure,
+        countries,
+        setCountries,
+      }}
     >
       {children}
     </AuthContext.Provider>

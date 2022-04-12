@@ -13,6 +13,7 @@ import Projects from './components/Projects';
 import AllEmployees from './components/AllEmployees';
 import PManagers from './components/PManagers';
 import Admins from './components/Admins';
+import AddNewEmployee from './components/AddNewEmployee';
 import OrdinaryUser from './pages/OrindaryUser';
 import CustomRouter from './components/CustomRouter';
 import customHistory from './components/CustomRouter/history';
@@ -36,6 +37,10 @@ function App() {
                 <Route path="projects" element={<Projects />} />
                 <Route path="pmanagers" element={<PManagers />} />
                 <Route path="admins" element={<Admins />} />
+                <Route
+                  path="employees/newEmployee"
+                  element={<AddNewEmployee />}
+                />
               </Route>
               <Route path="newuser" element={<OrdinaryUser />} />
               <Route path="*" element={<Error />} />
