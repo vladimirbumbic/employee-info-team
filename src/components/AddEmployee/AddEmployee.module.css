@@ -1,0 +1,44 @@
+.addEmployeeContainer {
+  position: fixed;
+  padding: 20px;
+  top: 80px;
+  left: 20vw;
+  width: 79vw;
+}
+
+.headerTitleAndButton {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.addNewEmployeeButton {
+  color: white;
+  width: 210px;
+  height: 32px;
+  background: #009ed2;
+  border: 1px solid #009ed2;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 18px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition-duration: 0.4s;
+}
+
+.addNewEmployeeButton:hover {
+  background-color: #004e80;
+  color: white;
+}
+
+.headerTitle {
+  font-size: 30px;
+  color: #032d47;
+  font-weight: 500;
+}
+
+.hr {
+  border: none;
+  border-top: 2px solid gray;
+}

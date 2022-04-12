@@ -4,8 +4,7 @@ import EmployeeCard from '../EmployeeCard';
 import data from './data';
 import { pagination } from '../../utils/pagination';
 import styles from './AllEmployees.module.css';
-
-import { FaUserPlus } from 'react-icons/fa';
+import AddEmployee from '../AddEmployee';
 
 const AllEmployees = () => {
   const [employees, setEmployees] = useState(data);
