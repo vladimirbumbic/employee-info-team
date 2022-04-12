@@ -10,9 +10,12 @@ import Cities from './components/Cities';
 import Seniorities from './components/Seniorities';
 import Positions from './components/Positions';
 import Projects from './components/Projects';
-import AllEmployees from './components/AllEmployees';
 import PManagers from './components/PManagers';
 import Admins from './components/Admins';
+import AllEmployees from './components/AllEmployees';
+import Employees from './components/Employees';
+import MyEmployees from './components/MyEmployees';
+import AllProjects from './components/AllProjects';
 import OrdinaryUser from './pages/OrindaryUser';
 import CustomRouter from './components/CustomRouter';
 import customHistory from './components/CustomRouter/history';
@@ -28,7 +31,7 @@ function App() {
               <Route path="/" element={<LoginPage />} />
               <Route path="mainContent" element={<MainContent />}>
                 <Route path="pending" element={<Pending />} />
-                <Route path="employees" element={<AllEmployees />} />
+                <Route path="allemployees" element={<AllEmployees />} />
                 <Route path="seniorities" element={<Seniorities />} />
                 <Route path="countries" element={<Countries />} />
                 <Route path="cities" element={<Cities />} />
@@ -36,6 +39,9 @@ function App() {
                 <Route path="projects" element={<Projects />} />
                 <Route path="pmanagers" element={<PManagers />} />
                 <Route path="admins" element={<Admins />} />
+                <Route path="employees" element={<Employees />} />
+                <Route path="myEmployees" element={<MyEmployees />} />
+                <Route path="allProjects" element={<AllProjects />} />
               </Route>
               <Route path="newuser" element={<OrdinaryUser />} />
               <Route path="*" element={<Error />} />

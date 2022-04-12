@@ -9,11 +9,13 @@ function Login() {
     useContext(AuthContext);
 
   useEffect(() => {
-    if (!loginData) {
+    if (loginData === null) {
       history.push('/');
-    } else if (loginData.role === null) {
+    } else if (loginData.role === 'EMPLOYEE') {
       history.push('newuser');
     } else if (loginData.role === 'SYSTEM_ADMIN') {
+      history.push('mainContent/allemployees');
+    } else if (loginData.role === 'PROJECT_MANAGER') {
       history.push('mainContent/employees');
     }
   }, [loginData]);
