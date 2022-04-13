@@ -39,7 +39,8 @@
   font-size: 14px;
 }
 
-.card button {
+.detailsButton,
+.deleteButton {
   color: #69c2e2;
   width: 150px;
   height: 30px;
@@ -53,7 +54,16 @@
   border: none;
 }
 
-.card button:hover {
+.detailsButton:hover {
   background-color: #004e80;
+  color: white;
+}
+
+.detailsDeleteContainer {
+  display: flex;
+}
+
+.deleteButton:hover {
+  background: red;
   color: white;
 }

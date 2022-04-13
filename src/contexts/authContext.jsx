@@ -1,12 +1,21 @@
 import { useState, createContext } from 'react';
 import history from '../components/CustomRouter/history';
 import { getAllCountires } from '../services/countries';
+import { getAllCities } from '../services/cities';
+import { getAllEmployees } from '../services/employees';
+import apiInstance from '../services/axios';
 
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
+  const [cities, setCities] = useState(
+    JSON.parse(window.localStorage.getItem('cities')),
+  );
   const [countries, setCountries] = useState(
-    JSON.parse(window.localStorage.getItem('countires')),
+    JSON.parse(window.localStorage.getItem('countries')),
+  );
+  const [users, setUsers] = useState(
+    JSON.parse(window.localStorage.getItem('users')),
   );
   const [loginData, setLoginData] = useState(
     localStorage.getItem('loginData')
@@ -31,7 +40,15 @@ export const AuthProvider = ({ children }) => {
     localStorage.setItem('loginData', JSON.stringify(data));
 
     const allCountriesResponse = await getAllCountires();
-    console.log(allCountriesResponse.data);
+    const allCities = await getAllCities();
+    const allUsers = await getAllEmployees();
+
+    window.localStorage.setItem('users', JSON.stringify(allUsers.data));
+    console.log(window.localStorage.getItem('users'));
+    window.localStorage.setItem('cities', JSON.stringify(allCities.data));
+    setCities(JSON.parse(window.localStorage.getItem('cities')));
+    console.log(window.localStorage.getItem('cities'));
+
     window.localStorage.setItem(
       'countries',
       JSON.stringify(allCountriesResponse.data),
@@ -41,6 +58,9 @@ export const AuthProvider = ({ children }) => {
 
   const handleLogOut = () => {
     localStorage.removeItem('loginData');
+    localStorage.removeItem('countries');
+    localStorage.removeItem('cities');
+    localStorage.removeItem('users');
     history.push('/');
     setLoginData(null);
   };
@@ -58,6 +78,10 @@ export const AuthProvider = ({ children }) => {
         handleLoginFailure,
         countries,
         setCountries,
+        cities,
+        setCities,
+        users,
+        setUsers,
       }}
     >
       {children}

@@ -1,4 +1,4 @@
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import AuthContext from '../../contexts/AuthContext';
 import styles from './Countries.module.css';
 import { useForm } from 'react-hook-form';
@@ -6,26 +6,25 @@ import CountryItem from '../CountryItem';
 import { addCountry } from '../../services/countries';
 
 const Countries = () => {
-  const { countries } = useContext(AuthContext);
-  // const tempCountries = [
-  //   {
-  //     name: 'Serbia',
-  //   },
-  //   {
-  //     name: 'Montenegro',
-  //   },
-  //   {
-  //     name: 'Greece',
-  //   },
-  //   {
-  //     name: 'Hungary',
-  //   },
-  // ];
+  const { countries, setCountries } = useContext(AuthContext);
+
   const { register, handleSubmit, watch } = useForm();
   const onSubmit = async (data) => {
-    console.log(data.country);
-    const response = await addCountry(data.country);
-    console.log(response);
+    try {
+      const response = await addCountry(data.country);
+      setCountries([...countries, { id: response.data, name: data.country }]);
+      window.localStorage.setItem(
+        'countries',
+        JSON.stringify([
+          ...countries,
+          { id: response.data, name: data.country },
+        ]),
+      );
+      console.log(response);
+      console.log(countries);
+    } catch (error) {
+      console.log(`Country creation failed - ${error}`);
+    }
   };
   return (
     <main className={styles.countryMainContainer}>
@@ -51,10 +50,10 @@ const Countries = () => {
         </div>
       </form>
       <div>
-        {window.localStorage.getItem('countries') ? (
-          JSON.parse(window.localStorage.getItem('countries')).map(
-            (country) => <CountryItem key={country.id} name={country.name} />,
-          )
+        {countries ? (
+          countries.map((country, index) => (
+            <CountryItem key={index} name={country.name} id={country.id} />
+          ))
         ) : (
           <p>No countries added.</p>
         )}
