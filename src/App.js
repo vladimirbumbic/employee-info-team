@@ -7,19 +7,15 @@ import Error from './pages/Error';
 import Countries from './components/Countries';
 import Pending from './components/Pending';
 import Cities from './components/Cities';
-import Seniorities from './components/Seniorities';
+import Technologies from './components/Technologies';
 import Positions from './components/Positions';
 import Projects from './components/Projects';
 import PManagers from './components/PManagers';
-import Admins from './components/Admins';
-<<<<<<< HEAD
 import AddNewEmployee from './components/AddNewEmployee';
-=======
 import AllEmployees from './components/AllEmployees';
 import Employees from './components/Employees';
 import MyEmployees from './components/MyEmployees';
 import AllProjects from './components/AllProjects';
->>>>>>> development
 import OrdinaryUser from './pages/OrindaryUser';
 import CustomRouter from './components/CustomRouter';
 import customHistory from './components/CustomRouter/history';
@@ -36,20 +32,19 @@ function App() {
               <Route path="mainContent" element={<MainContent />}>
                 <Route path="pending" element={<Pending />} />
                 <Route path="allemployees" element={<AllEmployees />} />
-                <Route path="seniorities" element={<Seniorities />} />
+                <Route path="technologies" element={<Technologies />} />
                 <Route path="countries" element={<Countries />} />
                 <Route path="cities" element={<Cities />} />
                 <Route path="positions" element={<Positions />} />
                 <Route path="projects" element={<Projects />} />
                 <Route path="pmanagers" element={<PManagers />} />
-                <Route path="admins" element={<Admins />} />
-                <Route
-                  path="employees/newEmployee"
-                  element={<AddNewEmployee />}
-                />
                 <Route path="employees" element={<Employees />} />
                 <Route path="myEmployees" element={<MyEmployees />} />
                 <Route path="allProjects" element={<AllProjects />} />
+                <Route
+                  path="allemployees/newEmployee"
+                  element={<AddNewEmployee />}
+                />
               </Route>
               <Route path="newuser" element={<OrdinaryUser />} />
               <Route path="*" element={<Error />} />

@@ -5,18 +5,33 @@ import data from './data';
 import { pagination } from '../../utils/pagination';
 import styles from './AllEmployees.module.css';
 import AddEmployee from '../AddEmployee';
+import { useContext } from 'react';
+import AuthContext from '../../contexts/AuthContext';
 
 const AllEmployees = () => {
-  const [employees, setEmployees] = useState(data);
+  const { users, setUsers } = useContext(AuthContext);
+  console.log(users);
 
   return (
-    <div className={styles.background}>
-      <div className={styles.employees}>
-        {employees.map((card) => {
-          return <EmployeeCard key={card.id} card={card} />;
-        })}
+    <main>
+      <AddEmployee />
+      <div className={styles.background}>
+        <div className={styles.employees}>
+          {users.map((user) => {
+            return (
+              <EmployeeCard
+                key={user.id}
+                name={user.name}
+                mail={user.email}
+                photo={user.photo}
+                role={user.role}
+                id={user.id}
+              />
+            );
+          })}
+        </div>
       </div>
-    </div>
+    </main>
   );
 };
 

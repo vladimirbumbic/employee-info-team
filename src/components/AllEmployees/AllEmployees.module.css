@@ -1,11 +1,11 @@
 .background {
   background: #f5f9fd;
-  /* -webkit-user-select: none;
+  -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
   max-height: calc(100vh + 20px);
-  padding-top: 50px; */
+  padding-top: 150px;
   /* margin-top:50px; */
 }
 
