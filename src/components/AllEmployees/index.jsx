@@ -16,18 +16,22 @@ const AllEmployees = () => {
       <AddEmployee />
       <div className={styles.background}>
         <div className={styles.employees}>
-          {users.map((user) => {
-            return (
-              <EmployeeCard
-                key={user.id}
-                name={user.name}
-                mail={user.email}
-                photo={user.photo}
-                role={user.role}
-                id={user.id}
-              />
-            );
-          })}
+          {!users ? (
+            <p>No users</p>
+          ) : (
+            users.map((user) => {
+              return (
+                <EmployeeCard
+                  key={user.id}
+                  name={user.name}
+                  mail={user.email}
+                  photo={user.photo}
+                  role={user.role}
+                  id={user.id}
+                />
+              );
+            })
+          )}
         </div>
       </div>
     </main>
