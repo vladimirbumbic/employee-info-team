@@ -44,6 +44,7 @@ export const AuthProvider = ({ children }) => {
     const allUsers = await getAllEmployees();
 
     window.localStorage.setItem('users', JSON.stringify(allUsers.data));
+    setUsers(JSON.parse(localStorage.getItem('users')));
     console.log(window.localStorage.getItem('users'));
     window.localStorage.setItem('cities', JSON.stringify(allCities.data));
     setCities(JSON.parse(window.localStorage.getItem('cities')));

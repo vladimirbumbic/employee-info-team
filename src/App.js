@@ -38,13 +38,12 @@ function App() {
                     path="allemployees/newEmployee"
                     element={<AddNewEmployee />}
                   />
-                  <Route path="seniorities" element={<Seniorities />} />
+                  <Route path="technologies" element={<Technologies />} />
                   <Route path="countries" element={<Countries />} />
                   <Route path="cities" element={<Cities />} />
                   <Route path="positions" element={<Positions />} />
                   <Route path="projects" element={<Projects />} />
                   <Route path="pmanagers" element={<PManagers />} />
-                  <Route path="admins" element={<Admins />} />
                   <Route path="employees" element={<Employees />} />
                   <Route path="myEmployees" element={<MyEmployees />} />
                   <Route path="allProjects" element={<AllProjects />} />
