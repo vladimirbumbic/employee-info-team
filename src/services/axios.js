@@ -1,4 +1,3 @@
-import { configure } from '@testing-library/react';
 import axios from 'axios';
 
 const baseURL = process.env.REACT_APP_API;
@@ -6,7 +5,7 @@ const baseURL = process.env.REACT_APP_API;
 const apiInstance = axios.create({
   baseURL,
   headers: {
-    Accept: 'application/json',
+    'Content-Type': 'application/json',
   },
 });
 
@@ -19,11 +18,21 @@ apiInstance.interceptors.request.use(
         Authorization: `Bearer ${token}`,
       };
     }
+
     return request;
   },
   (error) => {
     return Promise.reject(error);
   },
 );
+
+// apiInstance.interceptors.response.use(
+//   (response) => {
+//     console.log(response);
+//   },
+//   (error) => {
+//     return Promise.reject(error);
+//   },
+// );
 
 export default apiInstance;

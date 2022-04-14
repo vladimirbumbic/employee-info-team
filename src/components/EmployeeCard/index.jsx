@@ -1,12 +1,13 @@
 import styles from './EmployeeCard.module.css';
+import avatar from '../../assets/avatarIcon.png';
 
-const EmployeeCard = ({ card }) => {
+const EmployeeCard = ({ name, email, photo, seniority }) => {
   return (
-    <div className={styles.card} key={card.id}>
-      <img src={card.image} alt={card.name + ' photo'}></img>
-      <h2>{card.name}</h2>
-      <p>{card.job}</p>
-      <p>{card.email}</p>
+    <div className={styles.card}>
+      <img src={photo} alt="balblababal" />
+      <h2>{name}</h2>
+      <p>{seniority}</p>
+      <p>{email}</p>
       <button>Details</button>
     </div>
   );

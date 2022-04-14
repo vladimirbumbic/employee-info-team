@@ -10,8 +10,8 @@ const AllEmployees = () => {
 
   return (
     <>
-      <AddEmployee />
       <div className={styles.background}>
+        <AddEmployee />
         <div className={styles.employees}>
           {employees.map((card) => {
             return <EmployeeCard key={card.id} card={card} />;
