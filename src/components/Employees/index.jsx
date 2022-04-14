@@ -1,16 +1,42 @@
-import { useState } from 'react';
+import { useContext, useEffect } from 'react';
+import EmployeeContext from '../../contexts/EmployeeContext';
 import EmployeeCard from '../EmployeeCard';
-import data from './data';
 import style from './Employees.module.css';
 
 const Employees = () => {
-  const [employees, setEmployees] = useState(data);
+  const { getAllUsers, allUsers, navbarSearch } = useContext(EmployeeContext);
+
+  useEffect(() => {
+    getAllUsers();
+    console.log(
+      allUsers.filter((user) => {
+        if (!navbarSearch) {
+          return user;
+        } else if (
+          user.name.toLowerCase().includes(navbarSearch.toLowerCase())
+        ) {
+          return user;
+        }
+      }),
+    );
+  }, [navbarSearch]);
+
   return (
     <div className={style.background}>
       <div className={style.employees}>
-        {employees.map((card) => {
-          return <EmployeeCard key={card.id} card={card} />;
-        })}
+        {allUsers
+          .filter((user) => {
+            if (!navbarSearch) {
+              return user;
+            } else if (
+              user.name.toLowerCase().includes(navbarSearch.toLowerCase())
+            ) {
+              return user;
+            }
+          })
+          .map((user) => {
+            return <EmployeeCard key={user.id} {...user} />;
+          })}
       </div>
     </div>
   );

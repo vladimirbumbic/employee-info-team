@@ -2,7 +2,6 @@ import { useState } from 'react';
 
 import EmployeeCard from '../EmployeeCard';
 import data from './data';
-import { pagination } from '../../utils/pagination';
 import styles from './AllEmployees.module.css';
 import AddEmployee from '../AddEmployee';
 import { useContext } from 'react';

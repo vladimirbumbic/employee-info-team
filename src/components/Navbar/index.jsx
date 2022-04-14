@@ -1,21 +1,29 @@
-import { useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import SidebarContext from '../../contexts/SidebarContext';
 import AuthContext from '../../contexts/AuthContext';
+import EmployeeContext from '../../contexts/EmployeeContext';
 import style from './Navbar.module.css';
 
 import { BiMenu } from 'react-icons/bi';
 import { BsSearch } from 'react-icons/bs';
 
 const Navbar = () => {
+  const [inputSearch, setInputSearch] = useState('');
   const { sidebarIsOpen, setSidebarIsOpen } = useContext(SidebarContext);
   const {
     loginData: { photo, email, role },
     handleLogOut,
   } = useContext(AuthContext);
 
+  const { navbarSearch, setNavbarSerach } = useContext(EmployeeContext);
+
   const toggleSidebar = () => {
     setSidebarIsOpen(!sidebarIsOpen);
   };
+
+  useEffect(() => {
+    console.log(navbarSearch);
+  }, [navbarSearch]);
 
   return (
     <nav className={role === 'EMPLOYEE' ? style.navbarUser : style.navbar}>
@@ -32,7 +40,12 @@ const Navbar = () => {
           <form className={style.form}>
             <div className={style.inputWrapper}>
               <BsSearch className={style.searchIcon} />
-              <input type="text" placeholder="Search Employee" />
+              <input
+                type="text"
+                placeholder="Search Employee"
+                value={navbarSearch}
+                onChange={(e) => setNavbarSerach(e.target.value)}
+              />
             </div>
             <select name="fields" id="fields" className={style.select}>
               <option value="name">Name</option>

@@ -1,6 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 import { SidebarProvider } from './contexts/SidebarContext';
 import { AuthProvider } from './contexts/AuthContext';
+import { EmpoloyeeContextProvider } from './contexts/EmployeeContext';
 import LoginPage from './pages/LoginPage';
 import MainContent from './pages/MainContent';
 import Error from './pages/Error';
@@ -24,34 +25,37 @@ import './App.css';
 function App() {
   return (
     <AuthProvider>
-      <SidebarProvider>
-        <div className="App">
-          <CustomRouter history={customHistory}>
-            <Routes>
-              <Route path="/" element={<LoginPage />} />
-              <Route path="mainContent" element={<MainContent />}>
-                <Route path="pending" element={<Pending />} />
-                <Route path="allemployees" element={<AllEmployees />} />
-                <Route path="technologies" element={<Technologies />} />
-                <Route path="countries" element={<Countries />} />
-                <Route path="cities" element={<Cities />} />
-                <Route path="positions" element={<Positions />} />
-                <Route path="projects" element={<Projects />} />
-                <Route path="pmanagers" element={<PManagers />} />
-                <Route path="employees" element={<Employees />} />
-                <Route path="myEmployees" element={<MyEmployees />} />
-                <Route path="allProjects" element={<AllProjects />} />
-                <Route
-                  path="allemployees/newEmployee"
-                  element={<AddNewEmployee />}
-                />
-              </Route>
-              <Route path="newuser" element={<OrdinaryUser />} />
-              <Route path="*" element={<Error />} />
-            </Routes>
-          </CustomRouter>
-        </div>
-      </SidebarProvider>
+      <EmpoloyeeContextProvider>
+        <SidebarProvider>
+          <div className="App">
+            <CustomRouter history={customHistory}>
+              <Routes>
+                <Route path="/" element={<LoginPage />} />
+                <Route path="mainContent" element={<MainContent />}>
+                  <Route path="pending" element={<Pending />} />
+                  <Route path="allemployees" element={<AllEmployees />} />
+                  <Route
+                    path="allemployees/newEmployee"
+                    element={<AddNewEmployee />}
+                  />
+                  <Route path="seniorities" element={<Seniorities />} />
+                  <Route path="countries" element={<Countries />} />
+                  <Route path="cities" element={<Cities />} />
+                  <Route path="positions" element={<Positions />} />
+                  <Route path="projects" element={<Projects />} />
+                  <Route path="pmanagers" element={<PManagers />} />
+                  <Route path="admins" element={<Admins />} />
+                  <Route path="employees" element={<Employees />} />
+                  <Route path="myEmployees" element={<MyEmployees />} />
+                  <Route path="allProjects" element={<AllProjects />} />
+                </Route>
+                <Route path="newuser" element={<OrdinaryUser />} />
+                <Route path="*" element={<Error />} />
+              </Routes>
+            </CustomRouter>
+          </div>
+        </SidebarProvider>
+      </EmpoloyeeContextProvider>
     </AuthProvider>
   );
 }
