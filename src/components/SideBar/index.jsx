@@ -48,9 +48,9 @@ const SideBar = () => {
       link: 'cities',
     },
     {
-      title: 'Seniorities',
+      title: 'Technologies',
       icon: <GiLaurelCrown />,
-      link: 'seniorities',
+      link: 'technologies',
     },
     {
       title: 'Positions',

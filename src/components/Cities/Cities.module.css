@@ -88,3 +88,9 @@
   background-color: rgb(170, 240, 196);
   transition: 0.5s;
 }
+
+.selectCountry {
+  border-radius: 5px;
+  border: 1px solid rgb(180, 218, 205);
+  color: #838485;
+}

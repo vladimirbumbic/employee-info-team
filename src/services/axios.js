@@ -26,13 +26,17 @@ apiInstance.interceptors.request.use(
   },
 );
 
-// apiInstance.interceptors.response.use(
-//   (response) => {
-//     console.log(response);
-//   },
-//   (error) => {
-//     return Promise.reject(error);
-//   },
-// );
+// apiInstance.interceptors.request.use(
+//   (request) => {
+//     let {token} = JSON.parse(localStorage.getItem('loginData'))
+//     if(token) {
+//       request.headers = {
+//         Authorization: `Bearer ${token}`,
+//       }
+//       return request
+//     }
+
+//   }
+// )
 
 export default apiInstance;
