@@ -3,11 +3,15 @@ import history from '../components/CustomRouter/history';
 import { getAllCountires } from '../services/countries';
 import { getAllCities } from '../services/cities';
 import { getAllEmployees } from '../services/employees';
+import { getTechnologies } from '../services/technologies';
 import apiInstance from '../services/axios';
 
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
+  const [technologies, setTechnologies] = useState(
+    JSON.parse(window.localStorage.getItem('technologies')),
+  );
   const [cities, setCities] = useState(
     JSON.parse(window.localStorage.getItem('cities')),
   );
@@ -42,12 +46,18 @@ export const AuthProvider = ({ children }) => {
     const allCountriesResponse = await getAllCountires();
     const allCities = await getAllCities();
     const allUsers = await getAllEmployees();
+    const allTechnologies = await getTechnologies();
+
+    window.localStorage.setItem(
+      'technologies',
+      JSON.stringify(allTechnologies.data),
+    );
 
     window.localStorage.setItem('users', JSON.stringify(allUsers.data));
-    console.log(window.localStorage.getItem('users'));
+    setUsers(JSON.parse(window.localStorage.getItem('users')));
+
     window.localStorage.setItem('cities', JSON.stringify(allCities.data));
     setCities(JSON.parse(window.localStorage.getItem('cities')));
-    console.log(window.localStorage.getItem('cities'));
 
     window.localStorage.setItem(
       'countries',
@@ -61,6 +71,7 @@ export const AuthProvider = ({ children }) => {
     localStorage.removeItem('countries');
     localStorage.removeItem('cities');
     localStorage.removeItem('users');
+    localStorage.removeItem('technologies');
     history.push('/');
     setLoginData(null);
   };
@@ -82,6 +93,8 @@ export const AuthProvider = ({ children }) => {
         setCities,
         users,
         setUsers,
+        technologies,
+        setTechnologies,
       }}
     >
       {children}

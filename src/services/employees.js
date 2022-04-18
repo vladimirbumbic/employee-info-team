@@ -8,16 +8,14 @@ export const getAllEmployees = async () => {
     console.log(`Getting all employees failed - ${error}`);
   }
 };
-export const addEmployee = async (email, name, seniority, city) => {
+export const addEmployee = async (email, name, seniority, city, technology) => {
   try {
-    console.log('AAAAAAAAAAAAAAA');
-    console.log(email, name);
     const response = await apiInstance.post('api/users', {
       email: email,
       name: name,
-      // seniority: seniority,
-      // city: city,
-      // photo: photo,
+      seniority: seniority,
+      cityId: city,
+      positionId: technology,
     });
     console.log(response);
     return response;

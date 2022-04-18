@@ -1,6 +1,6 @@
 .card {
-  width: 272px;
-  height: 330px;
+  width: 200px;
+  height: 300px;
   margin-bottom: 53px;
   margin-right: 20px;
   border-radius: 8px;
@@ -21,8 +21,8 @@
 } */
 
 .card img {
-  width: 130px;
-  height: 130px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
   object-fit: cover;
 }
@@ -30,13 +30,13 @@
 .card h2 {
   margin: 10px 0;
   color: #00245d;
-  font-size: 20px;
+  font-size: 17px;
 }
 
 .card p {
   margin-top: 5px;
   color: #92a4b8;
-  font-size: 14px;
+  font-size: 10px;
 }
 
 .detailsButton,

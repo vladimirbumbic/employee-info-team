@@ -11,14 +11,14 @@ const Cities = () => {
   const { register, handleSubmit, watch } = useForm();
   const onSubmit = async (data) => {
     try {
-      console.log(data.country);
+      // console.log(data.country);
       const cityResponse = await addCity(data.city, data.country);
       setCities([...cities, { id: cityResponse.data, name: data.city }]);
       window.localStorage.setItem(
         'cities',
         JSON.stringify([...cities, { id: cityResponse.data, name: data.city }]),
       );
-      console.log(cityResponse);
+      // console.log(cityResponse);
     } catch (error) {
       console.log(`Adding city failed - ${error}`);
     }

@@ -3,31 +3,62 @@ import { useForm } from 'react-hook-form';
 import AvatarLogo from '../../assets/avatarIcon.png';
 import { useContext } from 'react';
 import AuthContext from '../../contexts/AuthContext';
+import history from '../CustomRouter/history';
 import { addEmployee, getAllEmployees } from '../../services/employees';
+import { useState } from 'react';
 
 const AddNewEmployee = () => {
-  const { countries, cities } = useContext(AuthContext);
+  // const [files, setFiles] = useState();
+
+  const { countries, cities, technologies, users, setUsers } =
+    useContext(AuthContext);
   const { register, handleSubmit, watch } = useForm();
   const onSubmit = async (data) => {
-    const allEmployees = await getAllEmployees();
-    console.log(allEmployees);
+    console.log(users);
     const employeeResponse = await addEmployee(
       data.mail,
       data.name,
       data.seniority,
       data.city,
+      data.technology,
     );
-    console.log(employeeResponse);
+    setUsers([
+      ...users,
+      {
+        id: employeeResponse.data,
+        name: data.name,
+        mail: data.mail,
+        photo:
+          'https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png',
+      },
+    ]);
+    window.localStorage.setItem(
+      'users',
+      JSON.stringify([
+        ...users,
+        {
+          id: employeeResponse.data,
+          name: data.name,
+          email: data.mail,
+          photo:
+            'https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png',
+        },
+      ]),
+    );
+    history.replace('/');
   };
-  //   const data = JSON.parse(localStorage.getItem('loginData'));
-  //   const profilePhoto = data.photo;
+
   return (
     <main className={styles.addEmployeeMainContainer}>
       <div className={styles.photoContainer}>
         <img className={styles.profilePhoto} src={AvatarLogo} alt="Profile" />
         <div className={styles.labelInputContainer}>
           <label>Add profile photo</label>
-          <input className={styles.customFileInput} type="file" />
+          <input
+            className={styles.customFileInput}
+            type="file"
+            // onChange={(e) => setFiles(e.target.files[0])}
+          />
         </div>
       </div>
       <div className={styles.formContainer}>
@@ -83,7 +114,7 @@ const AddNewEmployee = () => {
             <label className={styles.inputLabel}>Seniority:</label>
             <select
               className={styles.inputField}
-              {...register('senority', { required: true })}
+              {...register('seniority', { required: true })}
             >
               <option value="intern">Intern</option>
               <option value="junior">Junior</option>
@@ -97,7 +128,13 @@ const AddNewEmployee = () => {
             <select
               className={styles.inputField}
               {...register('technology', { required: false })}
-            />
+            >
+              {technologies.map((technology) => (
+                <option key={technology.id} value={technology.id}>
+                  {technology.name}
+                </option>
+              ))}
+            </select>
           </div>
 
           {/* <div className={styles.labelInputContainer}>

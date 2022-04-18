@@ -1,0 +1,90 @@
+.technologyMainContainer {
+  background-color: white;
+  text-align: center;
+  height: 70%;
+  width: 70%;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 4px 0px 8px 0px rgba(0, 0, 0, 0.15);
+  overflow-y: scroll;
+}
+
+.manageTechnologiesTitle {
+  font-size: 36px;
+  margin-bottom: 40px;
+  color: #707e8d;
+}
+
+.technologyLabel {
+  font-size: 24px;
+  color: #345375;
+  font-weight: 500;
+}
+
+.labelAndInputContainer {
+  display: flex;
+  margin-top: 10px;
+
+  justify-content: space-between;
+  border: 2px solid rgb(209, 248, 235);
+  margin-bottom: 10px;
+  padding: 9px;
+  color: #838485;
+  font-size: 18px;
+  border-radius: 10px;
+}
+
+.technologyInput {
+  border: none;
+  width: 70%;
+  font-size: 18px;
+  color: #838485;
+}
+
+.technologyInput:focus {
+  outline: none !important;
+}
+
+::placeholder {
+  font-size: 17px;
+  color: #b8b9bb;
+}
+
+.saveButtonContainer {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 15px;
+}
+
+.addButton {
+  border-radius: 10px;
+  border: 2px solid rgb(204, 209, 205);
+  width: 80px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-weight: bold;
+  color: rgb(169, 173, 171);
+  background-color: rgb(229, 238, 233);
+}
+
+.addButton:hover {
+  cursor: not-allowed;
+}
+
+.addButtonActive {
+  border-radius: 10px;
+  border: 2px solid rgb(28, 180, 86);
+  width: 80px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-weight: bold;
+  color: rgb(28, 180, 86);
+  background-color: rgb(223, 255, 235);
+}
+
+.addButtonActive:hover {
+  cursor: pointer;
+  color: rgb(46, 141, 82);
+  background-color: rgb(170, 240, 196);
+  transition: 0.5s;
+}

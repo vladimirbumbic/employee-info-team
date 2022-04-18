@@ -20,7 +20,7 @@ const EmployeeCard = (props) => {
       <img src={props.photo} alt={props.name + ' photo'}></img>
       <h2>{props.name}</h2>
       <p>{props.role}</p>
-      <p>{props.email}</p>
+      <p>{props.mail}</p>
       <div className={styles.detailsDeleteContainer}>
         <button className={styles.detailsButton}>Details</button>
         <button className={styles.deleteButton} onClick={handleDeleteEmployee}>
