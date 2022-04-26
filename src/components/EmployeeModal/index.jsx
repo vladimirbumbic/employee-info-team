@@ -30,7 +30,7 @@ const EmployeeModal = forwardRef((props, ref) => {
     const employees = await getAllEmployees();
     const updatedUsers = employees.data;
     setUsers(updatedUsers);
-
+    window.localStorage.setItem('users', JSON.stringify(updatedUsers));
     history.replace('/');
   };
 
