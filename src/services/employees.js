@@ -32,3 +32,29 @@ export const deleteEmployee = async (userId) => {
     console.log(`Failed delete user - ${error}`);
   }
 };
+
+export const changeEmployeeData = async (
+  email,
+  name,
+  role,
+  seniority,
+  city,
+  technology,
+
+  userId,
+) => {
+  try {
+    const response = await apiInstance.put(`api/users/${userId}`, {
+      email: email,
+      name: name,
+      role: role,
+      seniority: seniority,
+      cityId: city,
+      positionId: technology,
+    });
+    console.log(response);
+    return response;
+  } catch (error) {
+    console.log(`User creation failed - ${error}`);
+  }
+};
