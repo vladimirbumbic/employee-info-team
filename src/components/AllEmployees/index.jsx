@@ -30,6 +30,9 @@ const AllEmployees = () => {
                     photo={user.photo}
                     role={user.role}
                     id={user.id}
+                    seniority={user.seniority}
+                    city={user.city.id}
+                    technology={user.mainTechnology.id}
                   />
                 );
               })

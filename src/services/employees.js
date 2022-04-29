@@ -2,7 +2,7 @@ import apiInstance from './axios';
 
 export const getAllEmployees = async () => {
   try {
-    const response = await apiInstance.get('api/users');
+    const response = await apiInstance.get('api/users/fullUsers');
     return response;
   } catch (error) {
     console.log(`Getting all employees failed - ${error}`);
@@ -40,7 +40,6 @@ export const changeEmployeeData = async (
   seniority,
   city,
   technology,
-
   userId,
 ) => {
   try {

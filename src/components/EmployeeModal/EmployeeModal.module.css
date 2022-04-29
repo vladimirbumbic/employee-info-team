@@ -1,9 +1,6 @@
 .modalWrapper {
   position: fixed;
-  top: 50px;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  inset: 0;
 }
 
 .modalBackdrop {
@@ -21,7 +18,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   min-height: 30%;
-  width: 60%;
+  width: 50%;
   background-color: white;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
   z-index: 101;
@@ -38,17 +35,17 @@
 }
 
 .profilePhoto {
-  width: 200px;
-  height: 200px;
+  width: 180px;
+  height: 180px;
   border-radius: 10px;
-  margin-top: 13px;
+  margin-top: 5px;
 }
 
 input,
 select {
   margin-top: 10px;
   margin-bottom: 10px;
-  width: 300px;
+  width: 270px;
 }
 
 .formContainer {
@@ -90,4 +87,85 @@ select {
   cursor: pointer;
   background-color: rgb(73, 151, 73);
   transition-duration: 0.4s;
+}
+
+@media (min-width: 501px) and (max-width: 1024px) {
+  .modalBox {
+    height: 84%;
+    width: 65%;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+    z-index: 101;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+  }
+  .formContainer {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+  }
+  .photo {
+    align-self: center;
+  }
+  .profilePhoto {
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+  }
+  input,
+  select {
+    width: 250px;
+  }
+  form {
+    margin-top: -70px;
+    align-self: center;
+  }
+  .btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 500px) {
+  .modalBox {
+    height: 84%;
+    width: 85%;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+    z-index: 101;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+  }
+  .formContainer {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+  }
+  .photo {
+    align-self: center;
+  }
+  .profilePhoto {
+    width: 180px;
+    height: 180px;
+    border-radius: 10px;
+    margin-top: 150px;
+  }
+  input,
+  select {
+    width: 200px;
+  }
+  form {
+    margin-top: -70px;
+    align-self: center;
+  }
+  .btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }

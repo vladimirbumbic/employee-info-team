@@ -4,7 +4,7 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  max-height: calc(100vh + 20px);
+  /* max-height: calc(100vh + 20px); */
   padding-top: 150px;
   /* margin-top:50px; */
 }

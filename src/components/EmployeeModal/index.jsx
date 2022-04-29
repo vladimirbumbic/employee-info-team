@@ -36,6 +36,18 @@ const EmployeeModal = forwardRef((props, ref) => {
 
   const [modal, setModal] = useState(false);
 
+  function handleEsc(event) {
+    if (event.keyCode === 27) {
+      close();
+    }
+  }
+  useEffect(() => {
+    window.addEventListener('keydown', handleEsc);
+    return () => {
+      window.removeEventListener('keydown', handleEsc);
+    };
+  }, []);
+
   useEffect(() => {
     const body = document.querySelector('body');
     body.style.overflow = modal ? 'hidden' : '';
@@ -70,7 +82,7 @@ const EmployeeModal = forwardRef((props, ref) => {
           </button>
 
           <div className={styles.formContainer}>
-            <div>
+            <div className={styles.photo}>
               <img
                 className={styles.profilePhoto}
                 src={props.photo}
@@ -106,6 +118,7 @@ const EmployeeModal = forwardRef((props, ref) => {
               <div className={styles.labelInputContainer}>
                 <label className={styles.inputLabel}>Role:</label>
                 <select
+                  defaultValue={props.role.toLowerCase()}
                   className={styles.inputField}
                   {...register('role', { required: true })}
                 >
@@ -118,6 +131,7 @@ const EmployeeModal = forwardRef((props, ref) => {
               <div className={styles.labelInputContainer}>
                 <label className={styles.inputLabel}>City:</label>
                 <select
+                  defaultValue={props.city}
                   className={styles.inputField}
                   {...register('city', { required: true })}
                 >
@@ -134,6 +148,7 @@ const EmployeeModal = forwardRef((props, ref) => {
               <div className={styles.labelInputContainer}>
                 <label className={styles.inputLabel}>Seniority:</label>
                 <select
+                  defaultValue={props.seniority.toLowerCase()}
                   className={styles.inputField}
                   {...register('seniority', { required: true })}
                 >
@@ -147,6 +162,7 @@ const EmployeeModal = forwardRef((props, ref) => {
               <div className={styles.labelInputContainer}>
                 <label className={styles.inputLabel}>Technology:</label>
                 <select
+                  defaultValue={props.technology}
                   className={styles.inputField}
                   {...register('technology', { required: true })}
                 >
@@ -159,10 +175,11 @@ const EmployeeModal = forwardRef((props, ref) => {
                     : null}
                 </select>
               </div>
-
-              <button type="submit" className={styles.updateEmployeeButton}>
-                Change data
-              </button>
+              <div className={styles.btn}>
+                <button type="submit" className={styles.updateEmployeeButton}>
+                  Change data
+                </button>
+              </div>
             </form>
           </div>
         </div>

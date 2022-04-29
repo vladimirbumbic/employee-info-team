@@ -43,6 +43,10 @@ const EmployeeCard = (props) => {
         name={props.name}
         mail={props.mail}
         photo={props.photo}
+        role={props.role}
+        seniority={props.seniority}
+        city={props.city}
+        technology={props.technology}
       />
     </div>
   );
