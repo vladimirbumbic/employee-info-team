@@ -34,6 +34,13 @@ const EmployeeModal = forwardRef((props, ref) => {
     history.replace('/');
   };
 
+  useEffect(() => {
+    window.addEventListener('keydown', handleEsc);
+    return () => {
+      window.removeEventListener('keydown', handleEsc);
+    };
+  }, []);
+
   const [modal, setModal] = useState(false);
 
   function handleEsc(event) {
@@ -118,7 +125,7 @@ const EmployeeModal = forwardRef((props, ref) => {
               <div className={styles.labelInputContainer}>
                 <label className={styles.inputLabel}>Role:</label>
                 <select
-                  defaultValue={props.role.toLowerCase()}
+                  defaultValue={props.role?.toLowerCase()}
                   className={styles.inputField}
                   {...register('role', { required: true })}
                 >
@@ -131,7 +138,7 @@ const EmployeeModal = forwardRef((props, ref) => {
               <div className={styles.labelInputContainer}>
                 <label className={styles.inputLabel}>City:</label>
                 <select
-                  defaultValue={props.city}
+                  defaultValue={props.city?.id}
                   className={styles.inputField}
                   {...register('city', { required: true })}
                 >
@@ -148,7 +155,7 @@ const EmployeeModal = forwardRef((props, ref) => {
               <div className={styles.labelInputContainer}>
                 <label className={styles.inputLabel}>Seniority:</label>
                 <select
-                  defaultValue={props.seniority.toLowerCase()}
+                  defaultValue={props.seniority?.toLowerCase()}
                   className={styles.inputField}
                   {...register('seniority', { required: true })}
                 >
@@ -162,7 +169,7 @@ const EmployeeModal = forwardRef((props, ref) => {
               <div className={styles.labelInputContainer}>
                 <label className={styles.inputLabel}>Technology:</label>
                 <select
-                  defaultValue={props.technology}
+                  defaultValue={props.technology?.id}
                   className={styles.inputField}
                   {...register('technology', { required: true })}
                 >
