@@ -34,13 +34,6 @@ const EmployeeModal = forwardRef((props, ref) => {
     history.replace('/');
   };
 
-  useEffect(() => {
-    window.addEventListener('keydown', handleEsc);
-    return () => {
-      window.removeEventListener('keydown', handleEsc);
-    };
-  }, []);
-
   const [modal, setModal] = useState(false);
 
   function handleEsc(event) {
@@ -48,16 +41,15 @@ const EmployeeModal = forwardRef((props, ref) => {
       close();
     }
   }
-  useEffect(() => {
-    window.addEventListener('keydown', handleEsc);
-    return () => {
-      window.removeEventListener('keydown', handleEsc);
-    };
-  }, []);
 
   useEffect(() => {
     const body = document.querySelector('body');
     body.style.overflow = modal ? 'hidden' : '';
+
+    window.addEventListener('keydown', handleEsc);
+    return () => {
+      window.removeEventListener('keydown', handleEsc);
+    };
   }, [modal]);
 
   useImperativeHandle(ref, () => {
