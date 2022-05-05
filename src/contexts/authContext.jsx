@@ -52,6 +52,7 @@ export const AuthProvider = ({ children }) => {
       'technologies',
       JSON.stringify(allTechnologies.data),
     );
+    setTechnologies(JSON.parse(window.localStorage.getItem('technologies')));
 
     window.localStorage.setItem('users', JSON.stringify(allUsers.data));
     setUsers(JSON.parse(window.localStorage.getItem('users')));

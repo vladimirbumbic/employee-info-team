@@ -18,6 +18,7 @@ const AddNewEmployee = () => {
     const employeeResponse = await addEmployee(
       data.mail,
       data.name,
+      data.role,
       data.seniority,
       data.city,
       data.technology,
@@ -46,6 +47,10 @@ const AddNewEmployee = () => {
       ]),
     );
     history.replace('/');
+    const employees = await getAllEmployees();
+    const updatedUsers = employees.data;
+    setUsers(updatedUsers);
+    window.localStorage.setItem('users', JSON.stringify(updatedUsers));
   };
 
   return (
@@ -82,6 +87,18 @@ const AddNewEmployee = () => {
           </div>
 
           <div className={styles.labelInputContainer}>
+            <label className={styles.inputLabel}>Role:</label>
+            <select
+              className={styles.inputField}
+              {...register('role', { required: true })}
+            >
+              <option value="system_admin">System admin</option>
+              <option value="project_manager">Project manager</option>
+              <option value="employee">Employee</option>
+            </select>
+          </div>
+
+          {/* <div className={styles.labelInputContainer}>
             <label className={styles.inputLabel}>Country:</label>
             <select
               className={styles.inputField}
@@ -94,7 +111,7 @@ const AddNewEmployee = () => {
                 </option>
               ))}
             </select>
-          </div>
+          </div> */}
 
           <div className={styles.labelInputContainer}>
             <label className={styles.inputLabel}>City:</label>
