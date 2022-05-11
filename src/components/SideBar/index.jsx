@@ -32,11 +32,11 @@ const SideBar = () => {
     },
   ];
   const adminOptions = [
-    {
-      title: 'Pending',
-      icon: <FaUserClock />,
-      link: 'pending',
-    },
+    // {
+    //   title: 'Pending',
+    //   icon: <FaUserClock />,
+    //   link: 'pending',
+    // },
     {
       title: 'Countries',
       icon: <FaMapMarkedAlt />,
@@ -52,11 +52,11 @@ const SideBar = () => {
       icon: <GiLaurelCrown />,
       link: 'technologies',
     },
-    {
-      title: 'Positions',
-      icon: <BsPuzzleFill />,
-      link: 'positions',
-    },
+    // {
+    //   title: 'Positions',
+    //   icon: <BsPuzzleFill />,
+    //   link: 'positions',
+    // },
     {
       title: 'Projects',
       icon: <AiOutlineFundProjectionScreen />,

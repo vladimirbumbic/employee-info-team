@@ -8,6 +8,26 @@ export const getAllEmployees = async () => {
     console.log(`Getting all employees failed - ${error}`);
   }
 };
+
+export const getProjectManagers = async () => {
+  try {
+    const response = await apiInstance.get(
+      `api/users/findByRole/project_manager`,
+    );
+    return response;
+  } catch (error) {
+    console.error(error);
+  }
+};
+export const getAdmins = async () => {
+  try {
+    const response = await apiInstance.get(`api/users/findByRole/system_admin`);
+    return response;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
 export const addEmployee = async (
   email,
   name,
@@ -62,6 +82,6 @@ export const changeEmployeeData = async (
     console.log(response);
     return response;
   } catch (error) {
-    console.log(`User creation failed - ${error}`);
+    console.log(`Changing data failed - ${error}`);
   }
 };
