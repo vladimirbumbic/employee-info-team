@@ -6,7 +6,7 @@ import { addProject } from '../../services/projects';
 import ProjectItem from '../Project item';
 
 const Projects = () => {
-  const { projects, setProjects, projectManagers } = useContext(AuthContext);
+  const { projects, setProjects, users } = useContext(AuthContext);
 
   const { register, handleSubmit, watch } = useForm();
 
@@ -42,11 +42,14 @@ const Projects = () => {
             className={styles.selectProjectManager}
             {...register('projectManager')}
           >
-            {projectManagers.map((pm) => (
-              <option key={pm.id} value={pm.id}>
-                {pm.name}
-              </option>
-            ))}
+            {users.map(
+              (user) =>
+                user.role === 'PROJECT_MANAGER' && (
+                  <option key={user.id} value={user.id}>
+                    {user.name}
+                  </option>
+                ),
+            )}
           </select>
           <button
             type="submit"

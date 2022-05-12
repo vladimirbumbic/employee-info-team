@@ -2,7 +2,7 @@ import { useState, createContext } from 'react';
 import history from '../components/CustomRouter/history';
 import { getAllCountires } from '../services/countries';
 import { getAllCities } from '../services/cities';
-import { getAllEmployees, getProjectManagers } from '../services/employees';
+import { getAllEmployees } from '../services/employees';
 import { getTechnologies } from '../services/technologies';
 import { getAllProjects } from '../services/projects';
 import apiInstance from '../services/axios';
@@ -25,9 +25,7 @@ export const AuthProvider = ({ children }) => {
   const [projects, setProjects] = useState(
     JSON.parse(window.localStorage.getItem('projects')),
   );
-  const [projectManagers, setProjectManagers] = useState(
-    JSON.parse(window.localStorage.getItem('projectManagers')),
-  );
+
   const [loginData, setLoginData] = useState(
     localStorage.getItem('loginData')
       ? JSON.parse(localStorage.getItem('loginData'))
@@ -55,18 +53,9 @@ export const AuthProvider = ({ children }) => {
     const allUsers = await getAllEmployees();
     const allTechnologies = await getTechnologies();
     const allProjects = await getAllProjects();
-    const allProjectManagers = await getProjectManagers();
 
     window.localStorage.setItem('projects', JSON.stringify(allProjects.data));
     setProjects(JSON.parse(window.localStorage.getItem('projects')));
-
-    window.localStorage.setItem(
-      'projectManagers',
-      JSON.stringify(allProjectManagers.data),
-    );
-    setProjectManagers(
-      JSON.parse(window.localStorage.getItem('projectManagers')),
-    );
 
     window.localStorage.setItem(
       'technologies',
@@ -94,7 +83,6 @@ export const AuthProvider = ({ children }) => {
     localStorage.removeItem('users');
     localStorage.removeItem('technologies');
     localStorage.removeItem('projects');
-    localStorage.removeItem('projectManagers');
     history.push('/');
     setLoginData(null);
   };
@@ -120,8 +108,6 @@ export const AuthProvider = ({ children }) => {
         setTechnologies,
         projects,
         setProjects,
-        projectManagers,
-        setProjectManagers,
       }}
     >
       {children}
