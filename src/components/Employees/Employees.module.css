@@ -4,7 +4,7 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  max-height: calc(100vh + 20px);
+  /* max-height: calc(100vh + 20px); */
   padding-top: 50px;
   /* margin-top:50px; */
 }
@@ -71,6 +71,32 @@
 
 .paginationWrapper .paginatedBtns.active {
   background-color: #009ed2;
+}
+
+.paginationButtons {
+  width: 80%;
+  height: 40%;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+
+.paginationButtons a {
+  padding: 10px;
+  margin: 8px;
+  border-radius: 5px;
+  border: 1px solid #004e80;
+  color: #004e80;
+  cursor: pointer;
+}
+
+.paginationButtons a:hover {
+  color: white;
+  background-color: #004e80;
+}
+.paginationActive a {
+  color: white;
+  background-color: #004e80;
 }
 
 @media only screen and (max-width: 500px) {
