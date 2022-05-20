@@ -5,7 +5,8 @@ import style from './Employees.module.css';
 import ReactPaginate from 'react-paginate';
 
 const Employees = () => {
-  const { getAllUsers, allUsers, navbarSearch } = useContext(EmployeeContext);
+  const { getAllUsers, allUsers, navbarSearch, filteredListByType, type } =
+    useContext(EmployeeContext);
 
   const [pageNumber, setPageNumber] = useState(0);
   const usersPerPage = 100;
@@ -26,14 +27,7 @@ const Employees = () => {
     );
   }, [navbarSearch]);
 
-  const displayUsers = allUsers
-    .filter((user) => {
-      if (!navbarSearch) {
-        return user;
-      } else if (user.name.toLowerCase().includes(navbarSearch.toLowerCase())) {
-        return user;
-      }
-    })
+  const displayUsers = filteredListByType(type)
     .slice(pagesVisited, pagesVisited + usersPerPage)
     .map((user) => {
       return (
