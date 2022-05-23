@@ -31,6 +31,7 @@ const EmployeeModal = forwardRef((props, ref) => {
     const updatedUsers = employees.data;
     setUsers(updatedUsers);
     window.localStorage.setItem('users', JSON.stringify(updatedUsers));
+
     history.replace('/');
   };
 
@@ -174,6 +175,25 @@ const EmployeeModal = forwardRef((props, ref) => {
                     : null}
                 </select>
               </div>
+
+              {/* {props.role === 'PROJECT_MANAGER' && (
+                <div className={styles.labelInputContainer}>
+                  <label className={styles.inputLabel}>Projects:</label>
+                  <select
+                    defaultValue={props.project}
+                    className={styles.inputField}
+                    {...register('project', { required: true })}
+                  >
+                    {projects
+                      ? projects.map((pr) => (
+                          <option key={pr.id} value={pr.id}>
+                            {pr.name}
+                          </option>
+                        ))
+                      : null}
+                  </select>
+                </div>
+              )} */}
               <div className={styles.btn}>
                 <button type="submit" className={styles.updateEmployeeButton}>
                   Change data

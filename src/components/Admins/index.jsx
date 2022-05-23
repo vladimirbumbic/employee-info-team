@@ -1,36 +1,32 @@
 import EmployeeCard from '../EmployeeCard';
-import styles from './PManagers.module.css';
+import styles from './Admins.module.css';
 import { useContext, useEffect, useState } from 'react';
 import AuthContext from '../../contexts/AuthContext';
-import { getProjectManagers } from '../../services/employees';
+import { getAdmins } from '../../services/employees';
 
-const PManagers = () => {
+const Admins = () => {
   const { users, setUsers } = useContext(AuthContext);
-  const [projectManagersLoaded, setProjectManagersLoaded] = useState(false);
+  const [adminsLoaded, setAdminsLoaded] = useState(false);
 
-  const handleManagers = async () => {
-    const allManagers = await getProjectManagers();
-    const managers = allManagers.data;
-    setUsers(managers);
-    setProjectManagersLoaded(true);
+  const handleAdmins = async () => {
+    const allAdmins = await getAdmins();
+    const admins = allAdmins.data;
+    setUsers(admins);
+    setAdminsLoaded(true);
   };
 
   useEffect(() => {
-    handleManagers();
+    handleAdmins();
   }, []);
 
-  if (!projectManagersLoaded) {
+  if (!adminsLoaded) {
     return 'Loading...';
-  }
-
-  if (users.length === 0) {
-    return <div>There is no project manager...</div>;
   }
 
   return (
     <main>
       <div className={styles.background}>
-        <div className={styles.pmanagers}>
+        <div className={styles.admins}>
           {users.map((user) => {
             return (
               <EmployeeCard
@@ -52,4 +48,4 @@ const PManagers = () => {
   );
 };
 
-export default PManagers;
+export default Admins;

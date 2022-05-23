@@ -15,7 +15,8 @@ const Navbar = () => {
     handleLogOut,
   } = useContext(AuthContext);
 
-  const { navbarSearch, setNavbarSerach } = useContext(EmployeeContext);
+  const { navbarSearch, setNavbarSerach, setType } =
+    useContext(EmployeeContext);
 
   const toggleSidebar = () => {
     setSidebarIsOpen(!sidebarIsOpen);
@@ -47,7 +48,12 @@ const Navbar = () => {
                 onChange={(e) => setNavbarSerach(e.target.value)}
               />
             </div>
-            <select name="fields" id="fields" className={style.select}>
+            <select
+              name="fields"
+              id="fields"
+              className={style.select}
+              onChange={(e) => setType(e.target.value)}
+            >
               <option value="name">Name</option>
               <option value="country">Country</option>
               <option value="city">City</option>

@@ -4,6 +4,7 @@ import { getAllCountires } from '../services/countries';
 import { getAllCities } from '../services/cities';
 import { getAllEmployees } from '../services/employees';
 import { getTechnologies } from '../services/technologies';
+import { getAllProjects } from '../services/projects';
 import apiInstance from '../services/axios';
 
 const AuthContext = createContext();
@@ -21,6 +22,10 @@ export const AuthProvider = ({ children }) => {
   const [users, setUsers] = useState(
     JSON.parse(window.localStorage.getItem('users')),
   );
+  const [projects, setProjects] = useState(
+    JSON.parse(window.localStorage.getItem('projects')),
+  );
+
   const [loginData, setLoginData] = useState(
     localStorage.getItem('loginData')
       ? JSON.parse(localStorage.getItem('loginData'))
@@ -47,6 +52,10 @@ export const AuthProvider = ({ children }) => {
     const allCities = await getAllCities();
     const allUsers = await getAllEmployees();
     const allTechnologies = await getTechnologies();
+    const allProjects = await getAllProjects();
+
+    window.localStorage.setItem('projects', JSON.stringify(allProjects.data));
+    setProjects(JSON.parse(window.localStorage.getItem('projects')));
 
     window.localStorage.setItem(
       'technologies',
@@ -73,6 +82,7 @@ export const AuthProvider = ({ children }) => {
     localStorage.removeItem('cities');
     localStorage.removeItem('users');
     localStorage.removeItem('technologies');
+    localStorage.removeItem('projects');
     history.push('/');
     setLoginData(null);
   };
@@ -96,6 +106,8 @@ export const AuthProvider = ({ children }) => {
         setUsers,
         technologies,
         setTechnologies,
+        projects,
+        setProjects,
       }}
     >
       {children}
