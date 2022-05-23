@@ -23,6 +23,10 @@ const PManagers = () => {
     return 'Loading...';
   }
 
+  if (users.length === 0) {
+    return <div>There is no project manager...</div>;
+  }
+
   return (
     <main>
       <div className={styles.background}>
